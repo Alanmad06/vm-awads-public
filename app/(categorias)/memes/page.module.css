@@ -1,0 +1,360 @@
+/* Contenedor principal */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  width: 100dvw;
+  background-color: #000; /* Fondo negro para resaltar las imágenes */
+}
+
+/* Contenedor auxiliar */
+.container_aux {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70dvh;
+  width: 70dvw;
+  gap: 10px; /* Espacio entre las imágenes */
+}
+
+/* Contenedor de cada candidato */
+.container__candidatos {
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%; /* Cada imagen ocupa el 30% del ancho */
+  max-width: 50%;
+  overflow: hidden; /* Oculta lo que se salga del contenedor */
+  transition: transform 0.7s ease, opacity 0.5s ease; /* Transiciones suaves */
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Imagen con efecto de polígono irregular */
+.container__candidatos__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Hover: agranda la imagen seleccionada */
+.container__candidatos:hover {
+  transform: scale(1.1);
+  z-index: 20;
+  
+}
+
+/* Opaca las imágenes no seleccionadas */
+.container_aux:hover .container__candidatos:not(:hover) {
+  opacity: 0.5;
+}
+
+.candidato1 {
+  top: 0%;
+  left: 0%;
+  position: absolute;
+  z-index: 10;
+  clip-path: polygon(10% 0%, 100% 0%, 30% 100%, 0% 100%);
+}
+
+.candidato2 {
+  top: 0%;
+  left: 16%;
+  position: absolute;
+  background-size: cover; /* Asegura que cubra todo el div */
+  background-position: center top;
+  z-index: 11;
+  clip-path: polygon(0% 100%, 70% 0%, 100% 100%, 100% 100%);
+}
+
+.candidato2_img {
+  object-position: 50% 10%;
+}
+
+.candidato3 {
+  top: 0%;
+  left: 52%;
+  position: absolute;
+  z-index: 11;
+  clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 30% 100%);
+}
+
+.container__categoria{
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  font-family: "Bebas Neue", serif;
+font-weight: 500;
+font-size: 120%;
+
+}
+.container__titulo {
+  font-family: "Bebas Neue", serif;
+  font-weight: 500;
+  font-size: 120%;
+
+  color: aliceblue;
+  position: absolute;
+  right: 5%;
+  bottom: 50%; /* Empieza fuera de la pantalla */
+  transform: rotate(2deg);
+  font-size: 3.5rem;
+  animation: subirTitulo 8s ease-out infinite; /* Animación principal */
+  opacity: 0;
+}
+
+.container__titulo::before,
+.container__titulo::after {
+  content: "VOTA POR TU FAVORITO";
+  position: absolute;
+  right: 4.9%;
+  color: aliceblue;
+  filter: blur(3px); /* Efecto de desenfoque */
+  animation: subirEstela 8s ease-out infinite;
+}
+
+.container__titulo_2 {
+  font-family: "Bebas Neue", serif;
+  font-weight: 500;
+
+  color: aliceblue;
+  position: absolute;
+  right: 5%;
+  bottom: 30%;
+  transform: rotate(2deg);
+  opacity: 0.7;
+  filter: blur(5px);
+  transform: scale(0.7);
+  font-size: 3.5rem;
+  animation: subirTitulo2 8s ease-out infinite;
+  opacity: 0;
+}
+
+.container__titulo_2::before,
+.container__titulo_2::after {
+  content: "VOTA POR TU FAVORITO";
+  position: absolute;
+  right: 4.9%;
+
+  color: aliceblue;
+
+  filter: blur(3px);
+
+  animation: subirEstela2 8s ease-out infinite;
+}
+
+.container__titulo_3{
+  visibility: hidden;
+}
+
+@keyframes subirTitulo {
+  0% {
+    bottom: 20%;
+    opacity: 0;
+    transform: scale(0.8) rotate(2deg);
+  }
+
+  100% {
+    bottom: 50%;
+    opacity: 1;
+    transform: scale(1) rotate(2deg);
+  }
+}
+
+@keyframes subirTitulo2 {
+  0% {
+    bottom: 15%;
+    opacity: 0;
+    transform: scale(0.6) rotate(2deg);
+  }
+
+  100% {
+    bottom: 49%;
+    opacity: 0.7;
+    transform: scale(0.8) rotate(2deg);
+  }
+}
+
+/* Animación de la estela */
+@keyframes subirEstela {
+  0% {
+    bottom: -50%;
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  99% {
+    bottom: -10%;
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    display: none;
+  }
+}
+
+@keyframes subirEstela2 {
+  0% {
+    bottom: -55%;
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  99% {
+    bottom: -15%;
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    display: none;
+  }
+}
+
+@media (min-width: 1300px) {
+  .container_aux {
+    position: absolute;
+    left: 15%;
+    width: 50dvw;
+    
+    justify-self: flex-start;
+  }
+}
+@media (min-width: 600) and (max-width: 1300px) {
+
+  
+.candidato1 {
+
+  clip-path: polygon(10% 0%, 85% 0%, 35% 100%,0% 100%);
+}
+
+.candidato2 {
+
+  left: 18.5%;
+  clip-path: polygon(0% 100%, 50% 0%, 85% 0%, 100% 100%);
+}
+
+.candidato3 {
+  
+  left: 56%;
+  clip-path: polygon(12% 0%, 100% 0%, 90% 100%, 27% 100%);
+}
+
+.candidato3 .container__candidatos__img, .candidato2 .container__candidatos__img{
+  object-position: 50%;
+}
+
+  
+  .candidato3 {
+    
+    z-index: 12;
+  }
+}
+
+@media (max-width: 600px) {
+  .container_aux {
+    display: flex;
+    flex-direction: column;
+    min-height: 90dvh;
+  }
+
+  .container__candidatos {
+    width: 100%;
+    max-width: 100%;
+    height: 20em;
+  }
+
+  .container__candidatos__img {
+    height: 100%;
+  }
+
+  .candidato1 {
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: 10;
+    clip-path: none;
+  }
+
+  .candidato2 {
+    top: 0;
+    position: relative;
+    background-size: cover; /* Asegura que cubra todo el div */
+    background-position: center top;
+    z-index: 11;
+    clip-path: none;
+  }
+
+  .candidato3 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: relative;
+    clip-path: none;
+  }
+  .container__titulo{
+    left: 0;
+  }
+
+
+  
+  /* Animación de la estela */
+ 
+  
+
+}
+
+@media (max-width: 1300px) {
+  .container__titulo {
+    font-size: 7rem;
+    top: 1%;
+    z-index: 1;
+  }
+  .container__titulo2 {
+    font-size: 7rem;
+    top: 1%;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 600px) {
+  
+.candidato2 .container__candidatos__img{
+    object-position: 12px 21%;
+  }
+  .candidato3 .container__candidatos__img{
+    object-position: 12px 40%;
+  }
+}
+
+@media (max-width:600px) {
+  .container__titulo_3{
+    font-family: "Bebas Neue", serif;
+  font-weight: 500;
+  font-size: 120%;
+    visibility: visible;
+  }
+  .container__categoria{
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+ 
+}

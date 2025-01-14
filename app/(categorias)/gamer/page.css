@@ -1,0 +1,29 @@
+/* NUMERO :  6 */
+
+@media (min-width: 700px) {
+    .candidato1 {
+        top: -16%;
+        left: 1%;
+        clip-path: polygon(16% 24%, 85% 21%, 60.2% 71%, -3% 71.2%);
+    
+    }
+    .candidato4{
+        top: -14%;
+        left: 64.6%;
+        clip-path: polygon(26.6% 17%, 71% 21%, 87% 74.8%, 20.5% 75%);
+    }
+
+    .candidato5 {
+        top: 33%;
+        left: 63.6%;
+        clip-path: polygon(23% 20%, 91% 20%, 86% 80%, 18.5% 74%);
+    }
+
+    
+    .candidato6 {
+        left: -32.5%;
+        top: 26.5%;
+        clip-path: polygon(21% 21.5%, 84% 21.5%, 56.5% 78%, 16% 80%);
+
+    }
+}

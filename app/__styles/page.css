@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.container {
+  width: 100dvw;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_aux {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90dvh;
+  width: 90dvw;
+  margin-top: 10%;
+}
+
+.container__candidatos {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 30dvh;
+  margin: 3px;
+  transition: transform 0.5s ease;
+  
+}
+
+.container__candidatos:nth-child(4n + 3) {
+  margin-left: 25%;
+}
+
+.container__candidatos:nth-child(4n + 4) {
+  margin-right: 25%;
+}
+
+.container__candidatos__input{
+  display: none;
+}
+
+
+
+.container__candidatos__img {
+  cursor: pointer;
+  object-position: 50% 30%;
+  object-fit: cover;
+  z-index: 1;
+}
+.container__candidatos.selected {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 21;
+}
+
+.container__candidatos:not(:has(:checked)) {
+  opacity: 0.5;
+}
+
+.container__candidatos:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 11;
+}
+
+.container_aux:hover .container__candidatos.selected ~ .container__candidatos:not(:hover) {
+  opacity: 0.5;
+}
+
+.container__categoria {
+  font-family: "Bebas Neue", serif;
+  font-weight: 500;
+  font-size: 120%;
+  
+}
+
+
+
+.container__titulo {
+  font-family: Bebas Neue, serif;
+  font-weight: 500;
+  color: #f0f8ff;
+  position: fixed;
+  left: 3%;
+  top: 0;
+  filter: blur(5px);
+  transform: rotate(2deg);
+  font-size: 20.5rem;
+  animation: 16s ease-out subirTitulo infinite;
+  opacity: 0;
+  z-index: -1;
+}
+
+.container__titulo::before,
+.container__titulo::after {
+  z-index: -1;
+  content: "VM AWARDS";
+  position: absolute;
+  right: 4.9%;
+  color: aliceblue;
+  filter: blur(3px);
+  animation: subirEstela 16s ease-out infinite;
+}
+
+.container__titulo_2 {
+  visibility: hidden;
+}
+
+.container__titulo_3 {
+  font-family: Bebas Neue, serif;
+  font-weight: 500;
+
+  color: #f0f8ff;
+}
+
+.container__titulo::before {
+  animation: subirEstela2 16s ease-out infinite;
+}
+
+
+
+@keyframes subirTitulo {
+  0% {
+    bottom: 20%;
+    opacity: 0;
+    transform: scale(0.8) rotate(2deg);
+  }
+
+  100% {
+    bottom: 45%;
+    opacity: 1;
+    transform: scale(1) rotate(2deg);
+  }
+}
+
+@keyframes subirEstela {
+  0% {
+    bottom: -50%;
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  99% {
+    bottom: -10%;
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+@keyframes subirEstela2 {
+  0% {
+    bottom: -10%;
+    right: 4.9%;
+    opacity: 0.3;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.4);
+  }
+
+  99% {
+    bottom: -90%;
+    right: 20%;
+    opacity: 0.6;
+    transform: scale(0.6);
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+@media (min-width: 350px) {
+  .container_aux {
+    margin-top: 5%;
+  }
+
+  .container__candidatos {
+    height: 25dvh;
+  }
+}
+
+@media (min-width: 700px) {
+ 
+  .container_aux {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding-right: 5%;
+  }
+
+  .container__candidatos {
+    position: absolute;
+    height: 85%;
+    width: 35%;
+    z-index: 2;
+    margin: 0;
+  }
+
+  .candidato1 {
+    top: 7%;
+    left: 0%;
+    clip-path: polygon(10% 0%, 85% 0%, 35% 100%, 0% 100%);
+  }
+
+  .candidato1 .container__candidatos__img {
+    
+    margin-left: -15%;
+  }
+
+  .candidato2 {
+    top: 7%;
+    left: -12.5%;
+    clip-path: polygon(0% 100%, 50% 0%, 85% 0%, 100% 100%);
+  }
+
+  .candidato3 {
+    top: 7%;
+    left: 38.3%;
+    clip-path: polygon(12% 0%, 100% 0%, 90% 100%, 27% 100%);
+  }
+
+  .candidato4 {
+    top: 7%;
+    left: 59.6%;
+    clip-path: polygon(40% 0%, 90% 0%, 100% 50%, 35% 50%);
+
+  }
+
+
+  .candidato5 {
+    top: 50%;
+    left: 59.6%;
+    clip-path: polygon(35% 0%, 100% 0%, 95% 60%, 29.5% 55%);
+  }
+
+
+
+
+}
+
+
+@media (min-width: 1000px) {
+  .container__titulo {
+    font-size: 27rem;
+    line-height: 90.5%;
+    left: 0%;
+
+  }
+
+  .container__titulo::before {
+    top: 133%;
+    right: -37%;
+    font-size: 10rem;
+  }
+
+  .container__categoria {
+    font-size: 150%;
+  }
+
+  .container__titulo_3 {
+    font-size: 150%;
+  }
+}
