@@ -1,25 +1,31 @@
-/* NUMERO :  7 */
+/* NUMERO :  6 */
 
 @media (min-width: 700px) {
     .candidato1 {
         top: -16%;
         left: 1%;
         clip-path: polygon(16% 24%, 85% 21%, 60.2% 71%, -3% 71.2%);
-    
-    }
-    .candidato2{
-        top: -15%;
-        left: -9.5%;
-        clip-path: polygon(20% 69%, 44% 20%, 76% 25%, 84% 76%);
 
     }
 
-    .candidato4{
+
+    .candidato2 {
+        top: 7%;
+        left: -12.5%;
+        clip-path: polygon(0% 100%, 50% 0%, 85% 0%, 100% 100%);
+    }
+
+    .candidato3 {
+        top: 7%;
+        left: 38.3%;
+        clip-path: polygon(12% 0%, 100% 0%, 90% 100%, 27% 100%);
+    }
+
+    .candidato4 {
         top: -14%;
         left: 64.6%;
         clip-path: polygon(26.6% 17%, 71% 21%, 87% 74.8%, 20.5% 75%);
     }
-
 
     .candidato5 {
         top: 33%;
@@ -27,18 +33,10 @@
         clip-path: polygon(23% 20%, 91% 20%, 86% 80%, 18.5% 74%);
     }
 
-    
     .candidato6 {
         left: -32.5%;
         top: 26.5%;
-        
         clip-path: polygon(21% 21.5%, 84% 21.5%, 56.5% 78%, 16% 80%);
 
-    }
-    
-    .candidato7{
-        top: 32%;
-        left: 12.5%;
-        clip-path: polygon(28% 14%, 93% 21%, 100% 72%, -0.5% 72%);
     }
 }

@@ -1,65 +1,74 @@
 'use client'
 
 import { useCandidates } from '@/context/candidatesContext';
-import { Candidate } from "@/interfaces/candidates";
-import { useState } from "react";
+import { Candidate, selectedCandidate } from "@/interfaces/candidates";
+import { useRef, useState } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import navigationArr from '@/lib/navigation';
+import navigationList from '@/lib/navigation';
+
 type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'mascota' | 'momero' | 'sinque' | 'tiktok' | 'tiktoker' | 'trans' | 'trapo' | 'vg' | 'vrgo' | 'vm';
 
-export default function Candidates({candidates , category} : {candidates : Candidate[] , category : Category} ) {
-    const { dispatch } = useCandidates();
-    const [selectedCandidate, setSelectedCandidate] = useState('');
-    const router = useRouter();
-    
-    const handleSelect = (id: string) => {
-        setSelectedCandidate(id);
-        const selected = candidates.find((candidate) => candidate.id === id);
-        if (selected) {
-            /* dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } }); */
-            router.push(navigationArr[category]);
-        } else {
-            console.error(`Candidate with id ${id} not found`);
-        }
+export default function Candidates({ candidates, category, styles }: { candidates: Candidate[], category: Category, styles: any }) {
+  const { candidates : candidatesStored, dispatch } = useCandidates();
+  const selectedCandidate= useRef('');
+
+  const router = useRouter();
+
+  const handleSelect = (id: string) => {
         
-    };
+    const selected = candidates.find((candidate) => candidate.id === id);
+    if (selected) {
+      selectedCandidate.current = id;
+      dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
+      const node = navigationList.find(`/${category}`);
+      if (node instanceof Object) {
+        router.push(node.next?.data.toString() ?? '/');
+      }
+    } else {
+      console.error(`Candidate with id ${id} not found`);
+    }
+  };
 
- return (
+  return (
     <>
-        {candidates.map((candidate : Candidate)  => {
-          let estilo = ''
-          
-          if(selectedCandidate && selectedCandidate === candidate.id){
-            estilo = 'selected'
-          }else if(selectedCandidate && selectedCandidate !== candidate.id){
-            estilo = 'not'
-          }
+      {candidates.map((candidate: Candidate) => {
+        let estilo = '';
+        const isChecked = !!candidatesStored.find((storedCandidate : selectedCandidate) => storedCandidate.candidate.id === candidate.id && storedCandidate.category === category);
 
-          
-          return(
-          <div key={candidate.id} className={`container__candidatos ${candidate.id} ${estilo}`}>
+        if (isChecked) {
+          selectedCandidate.current=candidate.id;
+          if(selectedCandidate.current === candidate.id) {  
+            estilo = 'selected';
+          }
+        } else if (selectedCandidate.current &&  selectedCandidate.current !== candidate.id) {
+          estilo = 'not';
+        }
+
+        return (
+          <div
+            key={candidate.id}
+            className={`container__candidatos ${styles[candidate.id]} ${estilo}`}>
             <input
               type="radio"
               id={candidate.id}
-              className="container__candidatos__input"
+              className={'container__candidatos__input'}
               name="candidatos"
-              checked={selectedCandidate === candidate.id}
-              onChange={()=>{ handleSelect(candidate.id);}}
+              checked={isChecked}
+              onChange={() => handleSelect(candidate.id)}
             />
             <label htmlFor={candidate.id} onClick={() => handleSelect(candidate.id)}>
               <Image
-                className="container__candidatos__img"
+                className={'container__candidatos__img'}
                 src={candidate.src}
                 alt={candidate.alt}
                 fill={true}
               />
             </label>
           </div>
-          )
-})}
-        
-        </>
-)
-
+        );
+      })}
+    </>
+  );
 }
+
