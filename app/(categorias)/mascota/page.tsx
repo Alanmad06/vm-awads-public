@@ -19,15 +19,15 @@ const candidates: Candidate[] = [
 
 ];
 
-  const category = 'mascota'
+const category = 'mascota'
 
 export default function Mascota() {
 
   return (
-    <CandidatesProvider>
-      <Container category={category}>
-        <Candidates candidates={candidates} category={category} />
-      </Container>
-    </CandidatesProvider>
+
+    <Container category={category}>
+      <Candidates candidates={candidates} category={category} />
+    </Container>
+
   );
 }

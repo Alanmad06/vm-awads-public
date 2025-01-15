@@ -24,14 +24,14 @@ const candidates: Candidate[] = [
 ];
 
 
-const category = 'Trans'
+const category = 'trans'
 export default function Trans() {
 
     return (
-        <CandidatesProvider>
-            <Container category={category}>
-                <Candidates candidates={candidates} category={category} />
-            </Container>
-        </CandidatesProvider>
+
+        <Container category={category}>
+            <Candidates candidates={candidates} category={category} />
+        </Container>
+
     );
 }

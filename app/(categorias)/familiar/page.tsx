@@ -20,10 +20,10 @@ const category = 'familiar'
 export default function Familiar() {
 
   return (
-    <CandidatesProvider>
-      <Container category={category}>
-        <Candidates candidates={candidates} category={category} />
-      </Container>
-    </CandidatesProvider>
+
+    <Container category={category}>
+      <Candidates candidates={candidates} category={category} />
+    </Container>
+
   );
 }

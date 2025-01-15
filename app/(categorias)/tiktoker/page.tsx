@@ -23,14 +23,14 @@ const candidates: Candidate[] = [
 ];
 
 
-const category = 'Tiktok'
+const category = 'tiktoker'
 export default function Tiktok() {
 
     return (
-        <CandidatesProvider>
-            <Container category={category}>
-                <Candidates candidates={candidates} category={category} />
-            </Container>
-        </CandidatesProvider>
+
+        <Container category={category}>
+            <Candidates candidates={candidates} category={category} />
+        </Container>
+
     );
 }

@@ -28,7 +28,7 @@ const candidates: Candidate[] = [
 ];
 
 
-const category = 'VM'
+const category = 'vm'
 export default function VM() {
 
     return (

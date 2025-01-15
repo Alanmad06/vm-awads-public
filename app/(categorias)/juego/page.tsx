@@ -22,10 +22,10 @@ const category = 'juego'
 export default function Juego() {
 
   return (
-    <CandidatesProvider>
-      <Container category={category}>
-        <Candidates candidates={candidates} category={category} />
-      </Container>
-    </CandidatesProvider>
+
+    <Container category={category}>
+      <Candidates candidates={candidates} category={category} />
+    </Container>
+
   );
 }

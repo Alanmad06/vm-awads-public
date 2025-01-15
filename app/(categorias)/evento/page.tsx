@@ -12,19 +12,19 @@ const candidates: Candidate[] = [
   { id: 'candidato2', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
   { id: 'candidato3', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
   { id: 'candidato4', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
-  
+
 ];
 
-  const category = 'evento'
+const category = 'evento'
 export default function Evento() {
 
 
 
   return (
-    <CandidatesProvider>
-      <Container category={category}>
-        <Candidates candidates={candidates} category={category} />
-      </Container>
-    </CandidatesProvider>
+
+    <Container category={category}>
+      <Candidates candidates={candidates} category={category} />
+    </Container>
+
   );
 }

@@ -27,7 +27,7 @@ const candidates: Candidate[] = [
 ];
 
 
-const category = 'VG'
+const category = 'vrgo'
 export default function VG() {
 
     return (

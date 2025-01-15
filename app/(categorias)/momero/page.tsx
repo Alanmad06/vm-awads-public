@@ -25,10 +25,10 @@ export default function Momero() {
   const category = 'momero'
 
   return (
-    <CandidatesProvider>
-      <Container category={category}>
-        <Candidates candidates={candidates} category={category} />
-      </Container>
-    </CandidatesProvider>
+
+    <Container category={category}>
+      <Candidates candidates={candidates} category={category} />
+    </Container>
+
   );
 }

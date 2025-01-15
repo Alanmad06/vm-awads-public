@@ -26,14 +26,14 @@ const candidates: Candidate[] = [
 ];
 
 
-const category = 'VG'
+const category = 'vg'
 export default function VG() {
 
     return (
-        <CandidatesProvider>
-            <Container category={category}>
-                <Candidates candidates={candidates} category={category} />
-            </Container>
-        </CandidatesProvider>
+
+        <Container category={category}>
+            <Candidates candidates={candidates} category={category} />
+        </Container>
+
     );
 }

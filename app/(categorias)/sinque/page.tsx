@@ -21,16 +21,16 @@ const candidates: Candidate[] = [
 ];
 
 
-const category = 'Sinque'
+const category = 'sinque'
 export default function Sinque() {
 
-    
+
 
     return (
-        <CandidatesProvider>
-            <Container category={category}>
-                <Candidates candidates={candidates} category={category} />
-            </Container>
-        </CandidatesProvider>
+
+        <Container category={category}>
+            <Candidates candidates={candidates} category={category} />
+        </Container>
+
     );
 }

@@ -1,0 +1,11 @@
+@media (min-width: 700px) {
+.candidato1{
+  left: 12%;
+}
+.candidato2{
+  left:-.5%
+}
+.candidato3{
+  left: 50.3%;;
+}
+}
