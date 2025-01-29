@@ -12,7 +12,7 @@ type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'masc
 export default function Candidates({ candidates, category, styles }: { candidates: Candidate[], category: Category, styles: any }) {
   const { candidates : candidatesStored, dispatch } = useCandidates();
   const selectedCandidate= useRef('');
-
+  const isCategoryStored = !!candidatesStored.find((storedCandidate : selectedCandidate) => storedCandidate.category === category);
   const router = useRouter();
 
   const handleSelect = (id: string) => {
@@ -20,7 +20,12 @@ export default function Candidates({ candidates, category, styles }: { candidate
     const selected = candidates.find((candidate) => candidate.id === id);
     if (selected) {
       selectedCandidate.current = id;
-      dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
+      if(isCategoryStored){
+        dispatch({ type: 'UPDATE_CANDIDATE', payload: { category , candidate: selected } });
+      }else{
+        dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
+      }
+      
       const node = navigationList.find(`/${category}`);
       if (node instanceof Object) {
         router.push(node.next?.data.toString() ?? '/');

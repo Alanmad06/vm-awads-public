@@ -16,7 +16,7 @@ const reducerCandidates = (state: selectedCandidate[], action: actionCandidate) 
         case 'UPDATE_CANDIDATE':
             if(action.payload){
                 const index = state.findIndex(candidate => candidate.category=== action.payload?.category)
-                if(index){
+                if(index!==-1){
                     state[index] = action.payload
                     return [...state]
                 }
