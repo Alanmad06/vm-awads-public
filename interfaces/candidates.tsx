@@ -1,7 +1,7 @@
 export interface Candidate {
     id: string;
-    src: string;
-    alt: string;
+    src?: string;
+    alt?: string;
     name : string;
 }
 
@@ -18,4 +18,11 @@ export interface actionCandidate {
 export interface CandidatesContextProps {
     candidates: selectedCandidate[];
     dispatch: React.Dispatch<actionCandidate>;
+}
+
+export interface User {
+    id : string,
+    name : string,
+    email : string,
+    password? : string
 }
