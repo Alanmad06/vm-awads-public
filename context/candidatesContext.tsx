@@ -9,7 +9,7 @@ const CandidatesContext = createContext<CandidatesContextProps | undefined>(unde
 export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
     /* localStorage.getItem('candidates') ? JSON.parse(localStorage.getItem('candidates') as string)  */
     const [ candidates, dispatch ] = useReducer<selectedCandidate[], [action: actionCandidate]>(reducer,[]);
-
+    console.log('context',candidates)
     return (
         <CandidatesContext.Provider value={{ candidates, dispatch }}>
             {children}

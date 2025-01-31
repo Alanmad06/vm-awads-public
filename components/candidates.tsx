@@ -2,10 +2,12 @@
 
 import { useCandidates } from '@/context/candidatesContext';
 import { Candidate, selectedCandidate } from "@/interfaces/candidates";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import navigationList from '@/lib/navigation';
+import { Node } from 'dbly-linked-list';
+
 
 type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'mascota' | 'momero' | 'sinque' | 'tiktok' | 'tiktoker' | 'trans' | 'trapo' | 'vg' | 'vrgo' | 'vm';
 
@@ -26,8 +28,12 @@ export default function Candidates({ candidates, category, styles }: { candidate
         dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
       }
       
-      const node = navigationList.find(`/${category}`);
-      if (node instanceof Object) {
+      const node : Node | number = navigationList.find(`/${category}`);
+      if (node && typeof node === 'object') {
+        if(category==='vm') {
+          router.push('/submit');
+          return;
+        }
         router.push(node.next?.data.toString() ?? '/');
       }
     } else {
@@ -65,8 +71,8 @@ export default function Candidates({ candidates, category, styles }: { candidate
             <label htmlFor={candidate.id} onClick={() => handleSelect(candidate.id)}>
               <Image
                 className={'container__candidatos__img'}
-                src={candidate.src}
-                alt={candidate.alt}
+                src={candidate.src!}
+                alt={candidate.alt!}
                 fill={true}
               />
             </label>
