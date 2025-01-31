@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import styles from "./page.module.css";
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,64 +58,71 @@ export default function RegisterForm() {
 
   }, [message]);
   return (
-    <div className="flex items-center justify-center max-h-screen bg-gray-100 m-10">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow-md w-full max-w-md"
-      >
-        <label className="block mb-4 text-black">
-          Name:
-          <input
-            type="text"
-            className="mt-1 p-2 w-full border rounded"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <label className="block mb-4 text-black">
-          Email:
-          <input
-            type="email"
-            className="mt-1 p-2 w-full border rounded"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label className="block mb-4 text-black">
-          Password:
-          <input
-            type="password"
-            className="mt-1 p-2 w-full border rounded"
-            value={password}
-            min={1}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-        >
-          Register
+    <div className={styles.container}>
+    <form onSubmit={handleSubmit} className={styles.form}>
+    <label className={styles.form__label}>
+        Nombre:
+        <input
+          type="text"
+          className={styles.form__input}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </label>
+      <label className={styles.form__label}>
+        Email:
+        <input
+          type="email"
+          className={styles.form__input}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </label>
+
+      <label className={styles.form__label}>
+        Contraseña:
+        <input
+          type="password"
+          className={styles.form__input}
+          value={password}
+          min={1}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </label>
+
+      <div className={styles.button__container}>
+        <div className={`${styles.stars} ${styles.stars1}`} ></div>
+        <div className={`${styles.stars} ${styles.stars2}`} ></div>
+        <div className={`${styles.stars} ${styles.stars3}`} ></div>
+        <button type="submit" className={styles.form__button}>
+          Log In
         </button>
-        {message && (
-          <p className={`mt-4 ${message.startsWith("Error") ? "text-red-500" : "text-green-500"}`}>
-            {message.startsWith("Error") ? message.slice(6) : message}
-          </p>
-        )}
-        <div className="mt-4 text-center">
-          <p className="text-black">
-            Do you already have an account? {" "}
-            <Link href="/login" className="text-blue-500 hover:underline">
-              Log In
-            </Link>
-          </p>
-        </div>
-      </form>
+      </div>
 
+      {message && (
+        <p
+          className={`${styles.form__message} ${
+            message.startsWith("Error")
+              ? styles.form__message_error
+              : styles.form__message_success
+          }`}
+        >
+          {message.startsWith("Error") ? message.slice(6) : message}
+        </p>
+      )}
 
-    </div>
+      <div className={styles.form__text_center}>
+        <p>
+          Ya tienes una cuenta?{" "}
+          <Link className={styles.form__link} href="/login" prefetch={true}>
+            Login
+          </Link>
+        </p>
+      </div>
+    </form>
+  </div>
   );
 }

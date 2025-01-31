@@ -71,7 +71,7 @@ export default function LoginForm() {
         </label>
 
         <label className={styles.form__label}>
-          Password:
+          Contraseña:
           <input
             type="password"
             className={styles.form__input}
@@ -82,7 +82,7 @@ export default function LoginForm() {
           />
         </label>
 
-        {/* Contenedor del botón con las estrellas */}
+      
         <div className={styles.button__container}>
           <div className={`${styles.stars} ${styles.stars1}`} ></div>
           <div className={`${styles.stars} ${styles.stars2}`} ></div>
@@ -106,9 +106,9 @@ export default function LoginForm() {
 
         <div className={styles.form__text_center}>
           <p>
-            Don't you have an account?{" "}
+            No tienes una cuenta?{"  "}
             <Link className={styles.form__link} href="/register" prefetch={true}>
-              Register Now
+              Registrate
             </Link>
           </p>
         </div>
