@@ -5,6 +5,8 @@ import Candidates from "@/components/candidates";
 import Container from "@/components/container";
 import { Candidate } from '@/interfaces/candidates';
 import styles from './page.module.css';
+import SubmitButton from "@/components/submitButton";
+
 
 const candidates: Candidate[] = [
     { id: 'candidato1', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
@@ -30,10 +32,13 @@ const candidates: Candidate[] = [
 const category = 'vm'
 export default function VM() {
 
+    
+
     return (
 
         <Container category={category}>
             <Candidates candidates={candidates} category={category} styles={styles} />
+           
         </Container>
 
     );
