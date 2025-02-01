@@ -98,7 +98,7 @@ export default function RegisterForm() {
         <div className={`${styles.stars} ${styles.stars2}`} ></div>
         <div className={`${styles.stars} ${styles.stars3}`} ></div>
         <button type="submit" className={styles.form__button}>
-          Log In
+          Registrarse
         </button>
       </div>
 
@@ -123,6 +123,8 @@ export default function RegisterForm() {
         </p>
       </div>
     </form>
+    <span className={styles.container__titulo}>VM AWARDS</span>
+    <span className={styles.container__titulo_aux}>VM AWARDS</span>
   </div>
   );
 }
