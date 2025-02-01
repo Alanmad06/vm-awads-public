@@ -14,9 +14,16 @@ export async function GET() {
     }
     const result  = await getVotes(user?.user?.id!)
 
+    if(result && result.votes){
+      return NextResponse.json({
+        message: "Se encontraron votos",
+        result
+      });
+    }
+
     return NextResponse.json({
-      message: "Se encontraron votos",
-      result
+      message: "No se encontraron votos",
+      result : undefined
     });
   } catch (error) {
     return NextResponse.json({

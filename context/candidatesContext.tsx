@@ -1,17 +1,19 @@
 'use client'
 
 import { actionCandidate, CandidatesContextProps, selectedCandidate } from '@/interfaces/candidates';
-import React, { createContext, useContext, ReactNode, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, ReactNode, useReducer, useEffect, useState } from 'react';
 import reducer from '@/lib/reducer/candidatesReducer';
+import VmAnimation from '@/components/vmAnimation';
 
 const CandidatesContext = createContext<CandidatesContextProps | undefined>(undefined);
 
 export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
 
-    // Estado inicial vacío hasta que se carguen los datos
+    
     const initialState: selectedCandidate[] = [];
 
     const [candidates, dispatch] = useReducer(reducer, initialState);
+    const [loading , setLoading] = useState(false)
 
     useEffect(() => {
         const fetchCandidates = async () => {
@@ -21,15 +23,21 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
                 
                 console.log('Data from API:', data);
 
-                // Convertir los datos en un array si es necesario
+                if(!data.result.votes){
+                    console.log('no se encontraron votos')
+                    setLoading(true)
+                    return
+                }
+               
                 const votesArray = Object.keys(data.result.votes).map(key => ({
                     ...data.result.votes[key]
                 }));
 
                 console.log('Processed votes:', votesArray);
 
-                // Enviar los datos a useReducer
+               
                 dispatch({ type: 'SET_CANDIDATES', payload: votesArray });
+                setLoading(true)
             } catch (error) {
                 console.error('Failed to fetch candidates', error);
             }
@@ -40,7 +48,8 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <CandidatesContext.Provider value={{ candidates, dispatch }}>
-            {children}
+          
+            {loading ? children : <VmAnimation/>}
         </CandidatesContext.Provider>
     );
 };

@@ -25,6 +25,7 @@ const reducerCandidates = (state: selectedCandidate[] = [], action: actionCandid
             }
         case 'SET_CANDIDATES':
             if(action.payload){
+                state = []
                 return [...state,...action.payload as selectedCandidate[]]
             }
 
