@@ -3,6 +3,8 @@ import { pool } from "@/lib/db/db";
 import { navigationObj } from "@/lib/navigation";
 import { NextResponse } from "next/server";
 
+
+
 export async function POST(request: Request) {
   const db = await pool.connect();
   const navigationObjLength = Object.keys(navigationObj).length-1;
