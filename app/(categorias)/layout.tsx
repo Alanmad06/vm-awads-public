@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import navigationList from '@/lib/navigation';
+import SignOutButton from '@/components/signOutButton'
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -17,6 +18,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           router.push(node.prev?.data.toString() ?? '/');
         }
       }}>Go Back</button>
+      <SignOutButton/>
+      
       {children}
     </>
   );

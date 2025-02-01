@@ -22,10 +22,10 @@ export async function POST(request: Request) {
     if (!selectedCandidates) return NextResponse.json({ error: "No hay votos registrados" }, { status: 400 });
 
     
-    /* const result = await db.query(
+    const result = await db.query(
         'INSERT INTO users_votes (user_id, votes) VALUES ($1, $2)',
         [1, selectedCandidatesObj]
-      ); */
+      );
     return NextResponse.json({ message: "Voto registrado correctamente" });
   } catch (e) {
     console.error(e);
