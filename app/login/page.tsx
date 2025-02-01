@@ -40,6 +40,7 @@ export default function LoginForm() {
       }
 
       router.push("/memes");
+      
     } catch (error) {
       if (error instanceof Error) {
         setMessage(`Error: ${error.message}`);

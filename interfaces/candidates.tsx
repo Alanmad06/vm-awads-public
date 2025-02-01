@@ -12,7 +12,7 @@ export interface selectedCandidate{
 
 export interface actionCandidate {
     type : string;
-    payload? : selectedCandidate;
+    payload? : selectedCandidate | selectedCandidate[];
 }
 
 export interface CandidatesContextProps {
