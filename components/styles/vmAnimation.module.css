@@ -3,5 +3,6 @@
     height: 100dvh;
     display: flex;
     justify-content: center;
+    background-color: black;
     transition: opacity 0.5s, display 0.5s allow-discrete ease-in-out;
 }
