@@ -18,7 +18,7 @@ export const navigationObj : { [key : string]:string} = {
     trapo: "/vg",
     vg: "/vrgo",
     vrgo: "/vm",
-    vm : '/'
+    vm : '/submit'
   };
   
 Object.keys(navigationObj).forEach(key => {
