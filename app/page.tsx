@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import Link from "next/link";
 
 export default async function Home() {
 
@@ -11,7 +12,9 @@ export default async function Home() {
       {(authSession) ? 
       <button>Comienza a votar Ahora !</button> :
        <button>
-        Registrate para empezar a votar !
+        <Link href='/login'>
+        Registrate para empezar a votar !</Link>
+      
       </button>}
     </div>
   );
