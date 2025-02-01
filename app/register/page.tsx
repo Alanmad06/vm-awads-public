@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -50,13 +49,7 @@ export default function RegisterForm() {
     }
   };
 
-  useEffect(() => {
-
-    if (message && message.startsWith("Error")) {
-      toast.error(message);
-    }
-
-  }, [message]);
+ 
   return (
     <div className={styles.container}>
     <form onSubmit={handleSubmit} className={styles.form}>

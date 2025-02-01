@@ -2,6 +2,7 @@ import { pool } from "@/lib/db/db";
 import {  hash } from "bcryptjs";
 
 import { NextResponse } from "next/server";
+import { QueryResult } from "pg";
 
 
 export async function POST(request : Request){
@@ -15,15 +16,19 @@ export async function POST(request : Request){
           { status: 400 }
         );
       }
-      console.log(name,email,password)
+     
       const hashPassword = await hash(password,10)
-      const result = await db.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)',[name,email,hashPassword])
+      const result : QueryResult<any> = await db.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)',[name,email,hashPassword])
       console.log(result)
       return NextResponse.json({ message: "Usuario registrado correctamente" });
   
-    }catch(e){
-        console.error(e)
-        return NextResponse.json({ error: "Error al registrar el usuario" }, { status: 500 });
+    }catch(e: unknown){
+        console.error(e);
+        if (e instanceof Error && 'code' in e && e.code === '23505') { // Unique violation error code in PostgreSQL
+          return NextResponse.json({ error: "Usuario ya existente" }, { status: 400 });
+        }
+        const errorMessage = e instanceof Error ? e.message : 'Error desconocido';
+        return NextResponse.json({ error: `Error al registrar el usuario: ${errorMessage}` }, { status: 500 });
     }finally{
       db.release();
     }

@@ -9,12 +9,12 @@ export async function POST(request: Request) {
 
    
   } catch (error) {
-    console.log("ERROR ALV",error)
+    
     if (error instanceof AuthError) {
       switch (error.type) {
         case "CredentialsSignin":
           return new Response(
-            JSON.stringify({ error: "Invalid credentials." }),
+            JSON.stringify({ error: "Credenciales Invalidas" }),
             {
               status: 401,
               headers: { "Content-Type": "application/json" },
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
           );
         default:
           return new Response(
-            JSON.stringify({ error: "Something went wrong." }),
+            JSON.stringify({ error: "Error desconocido" }),
             {
               status: 500,
               headers: { "Content-Type": "application/json" },

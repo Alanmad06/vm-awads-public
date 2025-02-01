@@ -28,15 +28,15 @@ export const { auth, signIn, signOut } = NextAuth({
             console.error("Usuario no encontrado");
             return null;
           }
-          console.log('USERREE1231313',user)
+         
           const isPasswordValid = await bcrypt.compare(password, user.password!);
-          console.log('PASWW',password)
+         
           if (!isPasswordValid) {
             console.error("Contraseña incorrecta");
             return null;
           }
 
-          console.log('USERREE',user)
+          
           return user
   
         }catch (error) {
