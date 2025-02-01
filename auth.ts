@@ -2,8 +2,10 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
-import { getUser } from "./lib/db/db";
+
 import { authConfig } from "./auth.config";
+import { getUser } from "./lib/db/getUser";
+import { getVotes } from "./lib/db/getVotes";
 
 
 
@@ -28,6 +30,9 @@ export const { auth, signIn, signOut } = NextAuth({
             console.error("Usuario no encontrado");
             return null;
           }
+
+          const votes = await getVotes(user.id)
+          console.log('votes' , votes)
          
           const isPasswordValid = await bcrypt.compare(password, user.password!);
          
@@ -37,7 +42,7 @@ export const { auth, signIn, signOut } = NextAuth({
           }
 
           
-          return user
+          return {id: user.id, email: user.email};
   
         }catch (error) {
           console.error("Error durante la autorización:", error);
@@ -46,4 +51,19 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.id = user.id; 
+      }
+      return token;
+    },
+     session({ session, token }) {
+      
+      session.user.id = token.id as string;
+      
+      return session;
+    },
+  }
+
 });
