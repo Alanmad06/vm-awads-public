@@ -25,6 +25,5 @@ Object.keys(navigationObj).forEach(key => {
     navigationList.insert(navigationObj[key]);
 });
 
-console.log('Navigation List :',navigationList)
 
 export default navigationList;
