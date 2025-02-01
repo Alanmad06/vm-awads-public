@@ -1,0 +1,169 @@
+.button__container {
+    
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    width: 10%;
+    height: 40px;
+    transition: all ease-in-out .4s;
+    border: 1px rgba(255, 255, 255, 0.511) solid;
+    max-width: 200px;
+    justify-self: end;
+  margin-right: 1%;
+    
+}
+.button__container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 50px 0px rgba(255, 255, 255, 0.5);
+}
+
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars1 {
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    box-shadow:
+    120px 15px #FFF,
+    85px 32px #FFF,
+    190px 45px #FFF,
+    30px 10px #FFF,
+    175px 28px #FFF,
+    50px 5px #FFF,
+    140px 40px #FFF,
+    95px 22px #FFF,
+    180px 48px #FFF,
+    60px 35px #FFF,
+    25px 12px #FFF,
+    110px 7px #FFF,
+    135px 17px #FFF,
+    45px 50px #FFF,
+    170px 25px #FFF,
+    15px 44px #FFF,
+    195px 8px #FFF,
+    90px 42px #FFF,
+    55px 38px #FFF,
+    200px 13px #FFF,
+    135px 37px #FFF,
+    40px 23px #FFF,
+    180px 4px #FFF,
+    10px 19px #FFF,
+    160px 31px #FFF,
+    95px 21px #FFF,
+    55px 16px #FFF,
+    145px 46px #FFF,
+    185px 14px #FFF,
+    30px 9px #FFF,
+    75px 39px #FFF,
+    120px 3px #FFF,
+    60px 34px #FFF,
+    200px 24px #FFF,
+    175px 11px #FFF,
+    90px 41px #FFF,
+    15px 49px #FFF,
+    190px 26px #FFF,
+    105px 18px #FFF,
+    45px 33px #FFF;
+    animation: animStar 10s linear infinite;
+}
+
+
+
+.stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    top: 0;
+    left: 0;
+    box-shadow:
+    150px 45px #FFF,
+    120px 30px #FFF,
+    90px 20px #FFF,
+    180px 10px #FFF,
+    60px 40px #FFF,
+    170px 25px #FFF,
+    115px 35px #FFF,
+    130px 15px #FFF,
+    190px 50px #FFF,
+    50px 5px #FFF,
+    40px 38px #FFF,
+    140px 18px #FFF,
+    200px 8px #FFF,
+    55px 45px #FFF,
+    100px 33px #FFF,
+    175px 12px #FFF,
+    15px 48px #FFF,
+    135px 29px #FFF,
+    180px 22px #FFF,
+    90px 41px #FFF;
+    animation: animStar 30s linear infinite;
+}
+
+
+
+.stars3 {
+    width: 2.5px;
+    height: 2.5px;
+    background: transparent;
+    top: 0;
+    left: 0;
+    box-shadow:
+    55px 40px #FFF,
+    100px 25px #FFF,
+    150px 48px #FFF,
+    8px 30px #FFF,
+    196px 15px #FFF;
+    
+    animation: animStar 30s linear infinite;
+}
+
+
+
+/* Animación clave */
+@keyframes animStar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-70px);
+      
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+.form__button {
+    font-family:"Bebas Neue", serif;
+    font-size: 1.2rem;
+    width: 100%;
+    background-color: #000000a3;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    border: none;
+    height: 100%;
+}
+
+.form__button:hover {
+    background-color: #000000d3;
+    
+}
