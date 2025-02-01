@@ -1,6 +1,8 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import styles from "./styles/signOutButton.module.css"
+import { LogOut } from "lucide-react"
 
 
 
@@ -23,10 +25,15 @@ export default function SignOutButton() {
 
     return (
 
-        <button onClick={handleSignOut}>
+       
+ <div className={styles.button__container}>
+ <div className={`${styles.stars} ${styles.stars1}`} ></div>
+ <div className={`${styles.stars} ${styles.stars2}`} ></div>
+ <div className={`${styles.stars} ${styles.stars3}`} ></div>
+ <button className={styles.form__button} onClick={handleSignOut}>
+   <LogOut size={15}/>
 
-            <div className="hidden md:block">Sign Out</div>
-        </button>
-
+</button>
+</div>
     )
 }
