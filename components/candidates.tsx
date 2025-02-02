@@ -30,7 +30,10 @@ export default function Candidates({ candidates, category, styles }: { candidate
       
       const node : Node | number = navigationList.find(`/${category}`);
       if (node && typeof node === 'object') {
-        
+        if(category==='vm') {
+          router.push('/submit');
+          return;
+        }
         router.push(node.next?.data.toString() ?? '/');
       }
     } else {
