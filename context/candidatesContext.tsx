@@ -23,7 +23,7 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
                 
                 console.log('Data from API:', data);
 
-                if (!data.result.votes) {
+                if (!data.result) {
                     console.log('No se encontraron votos');
                     setFadeOut(true); // Activar animación antes de desaparecer
                     setTimeout(() => setLoading(true), 500); // Espera 500ms antes de cambiar `loading`
