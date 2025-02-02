@@ -10,7 +10,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <CandidatesProvider>
     <div className={styles.nav}>
-      <NavigationButton/>
+      <div className={styles.navigation}>
+      <NavigationButton forward={false}/>
+      <NavigationButton forward={true}/></div>
+      
       <SignOutButton/>
       </div>
       {children}
