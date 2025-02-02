@@ -1,8 +1,11 @@
 
 import { selectedCandidate } from "@/interfaces/candidates"
+import styles from "./styles/submitButton.module.css"
 
-export default  function submitButton({ selectedCandidates }: { selectedCandidates: selectedCandidate[] }) {
+export default function submitButton({ selectedCandidates, index }: { selectedCandidates: selectedCandidate[],  index: number }) {
 
+    if(selectedCandidates.length > 15) selectedCandidates.pop()
+    
     const handleVote = async () => {
         try {
             const response = await fetch('api/vote', {
@@ -21,9 +24,14 @@ export default  function submitButton({ selectedCandidates }: { selectedCandidat
 
     return (
 
-        <button onClick={handleVote} type="submit">
-            ola
+        <div className={styles.button__container}>
+        <div className={`${styles.stars} ${styles.stars1}`} ></div>
+        <div className={`${styles.stars} ${styles.stars2}`} ></div>
+        <div className={`${styles.stars} ${styles.stars3}`} ></div>
+        <button className={styles.form__button} onClick={handleVote} type="submit">
+            Enviar <br /> votos
         </button>
+   </div>
 
     )
 }

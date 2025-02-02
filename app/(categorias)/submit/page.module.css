@@ -1,7 +1,115 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100dvh;
+/* NUMERO :  16 */
+
+/* Animación clave */
+@keyframes animStar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-70px);
+
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+@media (min-width: 700px) {
+    .candidato1 {
+        top: -16%;
+        left: 5%;
+        clip-path: polygon(12% 24%, 73% 21%, 49.2% 71%, 34% 71%, -2% 42.2%);
+    }
+
+    .candidato2{
+        top: -15%;
+        left: -9.5%;
+        clip-path: polygon(20% 69%, 44% 20%, 76% 25%, 78.4% 41.8% ,51.2% 72.4%);
+    }
+
+    .candidato3{
+        top: -11%;
+        left: 48.3%;
+        clip-path: polygon(29.5% 17%, 72% 12%,67% 26%, 66% 71%, 38% 71%, 23.1% 61.5%, 35% 33%)
+       
+    }
+
+    .candidato4{
+        top: -14%;
+        left: 73.6%;
+        clip-path: polygon(31% 41%, 37.6% 17%, 70% 21%, 79% 52.8%, 70% 53.3%,43% 75%, 29.5% 75%)
+    }
+   
+
+    .candidato5 {
+        top: 33%;
+        left: 72.6%;
+        clip-path: polygon(32% 20%, 46% 20%, 74% 50%, 71% 80%, 32.5% 74%)
+    }
+
+    
+    .candidato6 {
+        left: -32.5%;
+        top: 29.5%;
+        clip-path: polygon(15% 42.6%, 70% 18%, 84.5% 17.7%, 55.5% 76%, 16% 77%);
+
+    }
+
+    .candidato7{
+        top: 32%;
+        left: 7.5%;
+        clip-path: polygon(43% 14%, 74% 17.5%, 75.3% 37.9%, 70% 72%, 13.5% 72%);
+    }
+    .candidato8{
+        top: 32%;
+        left: 46.5%;
+        clip-path: polygon(36.5% 32.2%, 43% 21%, 70.5% 21%, 67.5% 75%, 30.5% 74%)
+    }
+    .candidato9{
+        top: 8%;
+        clip-path: polygon(11% 45.5%, 38% 15%, 90% 49%, 46.5% 66%);
+    }
+    .candidato10{
+        top: -1%;
+        left: -37%;
+        clip-path: polygon(21% 48.5%, 44% 23%, 82% 53.6%, 29.5% 77%);
+    }
+    .candidato11{
+        top: 34%;
+        left: 21.5%;
+        clip-path: polygon(36.1% 34.9%, 34.8% 15.7%, 69.4% 35.4%, 68.5% 71%, 30.5% 70%);
+    }
+    .candidato12{
+        top: -19%;
+        left: 34.5%;
+        clip-path: polygon(24.5% 46.3%, 22% 27.7%, 68.1% 26.5%, 73.4% 42.4%, 61.9% 70.6%)
+    }
+    .candidato13{
+        top: 38%;
+        left: 33.5%;
+        clip-path: polygon(34.8% 66.3%, 36% 31.2%, 79.1% 14.5%, 72.7% 25.4%, 66.8% 67.6%)
+    }
+    .candidato14{
+        top: 33%;
+        left: 33.5%;
+        clip-path: polygon(33.8% 74.3%, 37% 20.2%,53% 18%, 71.7% 20.4%, 71.8% 73.6%)
+    }
+    .candidato15{
+        top: -15%;
+        left: 60.5%;
+        clip-path: polygon(31.8% 76.3%, 33% 31%, 37% 18.2%, 74.7% 17.4%, 68% 42%, 65.8% 76.1%, 47% 74%);
+    }
+    .candidato16{
+        top: 11%;
+        left: 81.5%;
+        clip-path: polygon(21% 46%, 48% 24.2%, 58.7% 23.4%, 68% 42%, 61.8% 76.1%, 47% 74%);
+        filter: brightness(200%);
+        
+    
+    }
 }
