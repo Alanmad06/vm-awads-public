@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 2000px;
 }
 
 .container_aux {
@@ -126,7 +127,6 @@
 }
 
 
-
 @keyframes subirTitulo {
   0% {
     bottom: 20%;
@@ -198,6 +198,7 @@
     height: 25dvh;
   }
 }
+
 
 @media (min-width: 700px) {
  

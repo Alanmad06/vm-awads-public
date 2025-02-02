@@ -1,0 +1,174 @@
+.button__container {
+
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    width: 10%;
+    height: 40px;
+    transition: all ease-in-out .4s;
+    border: 1px rgba(255, 255, 255, 0.511) solid;
+ 
+    justify-self: start;
+    margin-left: 1%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+
+}
+
+.button__container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 50px 0px rgba(255, 255, 255, 0.5);
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars1 {
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    box-shadow:
+        19.41dvw 1.89dvh #FFF,
+        26.69dvw 76.83dvh #FFF,
+        20.50dvw 5.99dvh #FFF,
+        23.23dvw 88.27dvh #FFF,
+        1.07dvw 27.06dvh #FFF,
+        18.87dvw 30.76dvh #FFF,
+        5.21dvw 44.01dvh #FFF,
+        19.71dvw 24.09dvh #FFF,
+        25.30dvw 52.47dvh #FFF,
+        0.15dvw 74.86dvh #FFF,
+        11.24dvw 64.47dvh #FFF,
+        0.81dvw 53.05dvh #FFF,
+        5.22dvw 42.51dvh #FFF,
+        2.94dvw 27.59dvh #FFF,
+        6.67dvw 29.10dvh #FFF,
+        28.96dvw 5.53dvh #FFF,
+        20.43dvw 36.47dvh #FFF,
+        5.78dvw 18.98dvh #FFF,
+        23.69dvw 49.82dvh #FFF,
+        21.74dvw 7.29dvh #FFF,
+        13.41dvw 14.86dvh #FFF,
+        7.59dvw 2.50dvh #FFF,
+        5.54dvw 65.37dvh #FFF,
+        17.27dvw 18.01dvh #FFF,
+        6.55dvw 1.90dvh #FFF,
+        29.37dvw 3.14dvh #FFF,
+        11.71dvw 63.17dvh #FFF,
+        13.52dvw 41.99dvh #FFF,
+        24.68dvw 59.60dvh #FFF,
+        25.59dvw 12.96dvh #FFF,
+        17.76dvw 25.19dvh #FFF,
+        24.69dvw 35.19dvh #FFF,
+        26.30dvw 14.19dvh #FFF,
+        14.63dvw 10.52dvh #FFF,
+        27.61dvw 43.62dvh #FFF,
+        3.52dvw 51.55dvh #FFF,
+        17.82dvw 24.18dvh #FFF,
+        11.21dvw 28.86dvh #FFF,
+        18.84dvw 2.46dvh #FFF,
+        16.60dvw 51.09dvh #FFF;
+
+    animation: animStar 10s linear infinite;
+}
+
+
+
+.stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    top: 0;
+    left: 0;
+    box-shadow:
+        12dvw 25dvh #FFF,
+        8dvw 15dvh #FFF,
+        22dvw 5dvh #FFF,
+        18dvw 40dvh #FFF,
+        25dvw 30dvh #FFF,
+        10dvw 35dvh #FFF,
+        14dvw 20dvh #FFF,
+        28dvw 50dvh #FFF,
+        5dvw 10dvh #FFF,
+        3dvw 38dvh #FFF,
+        16dvw 18dvh #FFF,
+        30dvw 8dvh #FFF,
+        7dvw 45dvh #FFF,
+        9dvw 33dvh #FFF,
+        20dvw 12dvh #FFF,
+        2dvw 48dvh #FFF,
+        13dvw 29dvh #FFF,
+        24dvw 22dvh #FFF,
+        11dvw 41dvh #FFF;
+    animation: animStar 30s linear infinite;
+}
+
+
+
+.stars3 {
+    width: 2.5px;
+    height: 2.5px;
+    background: transparent;
+    top: 0;
+    left: 0;
+    box-shadow:
+        12dvw 35dvh #FFF,
+        18dvw 20dvh #FFF,
+        25dvw 45dvh #FFF,
+        3dvw 25dvh #df0000,
+        28dvw 10dvh #FFF,
+        15dvw 40dvh #FFF,
+        10dvw 15dvh #FFF,
+        22dvw 50dvh #FFF,
+        5dvw 30dvh #FFF,
+        30dvw 5dvh #FFF;
+
+    animation: animStar 30s linear infinite;
+}
+
+
+.form__button {
+    font-family: "Bebas Neue", serif;
+    font-size: 1.5rem;
+    width: 100%;
+    background-color: #000000b5;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    border: none;
+    height: 94%;
+    width: 100%;
+}
+
+.form__button:hover {
+    background-color: #000000d3;
+
+}
+
+@keyframes animStar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-70px);
+
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
