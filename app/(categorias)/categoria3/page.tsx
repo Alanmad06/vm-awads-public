@@ -17,14 +17,14 @@ const candidates: Candidate[] = [
     { id: 'candidato8', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
     { id: 'candidato9', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
     { id: 'candidato10', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
-    { id: 'candidato11', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
-    { id: 'candidato12', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
-    { id: 'candidato13', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' }
+    { id: 'candidato11', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' }
 ];
 
 
-const category = 'trans'
-export default function Trans() {
+const category = 'categoria3'
+export default function Categoria3() {
+
+
 
     return (
 

@@ -1,12 +1,6 @@
-'use client'
+import { Candidate } from "@/interfaces/candidates";
 
-
-import Candidates from "@/components/candidates";
-import Container from "@/components/container";
-import { Candidate } from '@/interfaces/candidates';
-import styles from './page.module.css';
-
-const candidates: Candidate[] = [
+ const candidates: Candidate[] = [
     { id: 'candidato1', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
     { id: 'candidato2', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
     { id: 'candidato3', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
@@ -22,18 +16,8 @@ const candidates: Candidate[] = [
     { id: 'candidato13', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
     { id: 'candidato14', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
     { id: 'candidato15', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
-    { id: 'candidato16', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' }
+    { id: 'candidato16', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' },
+    { id: 'candidato17', src: '/personas/cris.jpg', alt: 'candidato changuillo', name: 'Cris' }
 ];
 
-
-const category = 'vrgo'
-export default function VG() {
-
-    return (
-
-        <Container category={category}>
-            <Candidates candidates={candidates} category={category} styles={styles} />
-        </Container>
-
-    );
-}
+export default candidates;

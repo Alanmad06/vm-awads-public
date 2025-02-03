@@ -9,7 +9,7 @@ import navigationList from '@/lib/navigation';
 import { Node } from 'dbly-linked-list';
 
 
-type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'mascota' | 'momero' | 'sinque' | 'tiktok' | 'tiktoker' | 'trans' | 'trapo' | 'vg' | 'vrgo' | 'vm';
+type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'mascota' | 'categoria1' | 'categoria2' | 'categoria3' | 'tiktoker' | 'categoria4' | 'categoria5' | 'categoria6' | 'categoria7' | 'vm';
 
 export default function Candidates({ candidates, category, styles }: { candidates: Candidate[], category: Category, styles: any }) {
   const { candidates : candidatesStored, dispatch } = useCandidates();

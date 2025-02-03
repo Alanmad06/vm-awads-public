@@ -19,9 +19,9 @@ const candidates: Candidate[] = [
 ];
 
 
-export default function Momero() {
+export default function Categoria1() {
 
-  const category = 'momero'
+  const category = 'categoria1'
 
   return (
 
