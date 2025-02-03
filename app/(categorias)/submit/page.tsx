@@ -25,7 +25,7 @@ export default function SubmitPage(){
             <Container category="VOTOS">
                 {candidates && candidates.map((selectedCandidate: selectedCandidate,index) => {
                         const {candidate ,category}  =selectedCandidate
-                        const estilo = styles[`candidato${index+1}`];
+                        const estilo = styles[category];
                         const isSubmit = (index===candidates.length-1) ? true : false
                         
                         return (
