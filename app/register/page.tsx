@@ -8,12 +8,17 @@ export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [confirmPassword , setConfirmPassword] = useState("")
   const [message, setMessage] = useState("");
 
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if(password!==confirmPassword) {
+      setMessage('Error: Las contraseñas no coinciden');
+      return
+    }
     setMessage("");
 
     try {
@@ -27,6 +32,7 @@ export default function RegisterForm() {
           name,
           email,
           password,
+          confirmPassword
         }),
       });
 
@@ -80,8 +86,18 @@ export default function RegisterForm() {
           type="password"
           className={styles.form__input}
           value={password}
-          min={1}
+          minLength={6}
           onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </label>
+      <label className={styles.form__label}>
+        Confirmar Contraseña:
+        <input
+          type="password"
+          className={styles.form__input}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>

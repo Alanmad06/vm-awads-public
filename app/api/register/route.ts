@@ -1,4 +1,5 @@
 import { pool } from "@/lib/db/db";
+import { registerSchema } from "@/lib/schemas/authSchemas";
 import {  hash } from "bcryptjs";
 
 import { NextResponse } from "next/server";
@@ -9,10 +10,19 @@ export async function POST(request : Request){
 
     const db = await pool.connect()
     try{
-      const {name , email , password} = await request.json()
+      const {name , email , password, confirmPassword} = await request.json()
+      if(password !==confirmPassword){
+        return NextResponse.json({ error: "Contraseñas no coinciden" }, { status: 400 });
+      }
+      const parsedCrendials = registerSchema.safeParse({name,email,password})
+      if(!parsedCrendials.success){
+        const message = parsedCrendials.error.errors[0].message
+        console.log('ppsad',message)
+        return NextResponse.json({ error: message }, { status: 400 });
+      }
       if (!name || !email || !password) {
         return NextResponse.json(
-          { error: "Required fields are missing" },
+          { error: "Campos requeridos faltantes" },
           { status: 400 }
         );
       }

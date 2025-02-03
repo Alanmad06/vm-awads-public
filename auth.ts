@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 import { authConfig } from "./auth.config";
 import { getUser } from "./lib/db/getUser";
 import { getVotes } from "./lib/db/getVotes";
+import { loginSchema } from "./lib/schemas/authSchemas";
 
 
 
@@ -14,9 +15,7 @@ export const { auth, signIn, signOut } = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        const parsedCrendials = z
-          .object({ email: z.string().email(), password: z.string().min(2) })
-          .safeParse(credentials);
+        const parsedCrendials = loginSchema.safeParse(credentials)
 
           if(!parsedCrendials.success){
             return null

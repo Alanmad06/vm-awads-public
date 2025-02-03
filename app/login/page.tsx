@@ -45,7 +45,7 @@ export default function LoginForm() {
       if (error instanceof Error) {
         setMessage(`Error: ${error.message}`);
       } else {
-        setMessage("An unknown error occurred.");
+        setMessage("Error desconocido");
       }
     }
   };
@@ -70,7 +70,7 @@ export default function LoginForm() {
             type="password"
             className={styles.form__input}
             value={password}
-            min={1}
+            minLength={6}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
