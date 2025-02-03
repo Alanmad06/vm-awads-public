@@ -1,6 +1,6 @@
 .button__container {
 
-    margin-top: 2rem;
+    
     position: relative;
     overflow: hidden;
     border-radius: 0.375rem;
@@ -163,13 +163,13 @@
     z-index: 2;
     border: none;
     height: 100%;
-    min-width: 100px;
+    min-width: 120px;
 }
 
-.forward{
+/* .forward{
     min-width: 50px;
     width:50px;
-}
+} */
 
 .form__button:hover {
     background-color: #000000d3;
