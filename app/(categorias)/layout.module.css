@@ -12,11 +12,17 @@
 .navigation{
     display: flex;
     flex-direction: row;
+    margin-top: 2rem;
     gap: 1%;
 }
 
 @media (max-width: 700px) {
     .nav{
         margin-top: -5%;
+    }
+    .navigation{
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 5px;
     }
 }
