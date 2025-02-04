@@ -1,6 +1,8 @@
+import { signIn } from "@/auth";
 import { createUser } from "@/lib/db/createUser";
 import { deleteCode } from "@/lib/db/verification_codes/deleteCode";
 import getCode from "@/lib/db/verification_codes/getCode";
+
 
 export async function POST(request : Request) {
     try {
@@ -22,9 +24,15 @@ export async function POST(request : Request) {
       
       await deleteCode(email)
       await createUser(email,name,password)
+      await signIn('credentials',{
+        email ,
+        password,
+        redirect: false
+      })
   
       return new Response("Email verificado correctamente", { status: 200 });
     } catch (error) {
+        console.log(error)
       return new Response("Error verificando el código", { status: 500 });
     }
   }

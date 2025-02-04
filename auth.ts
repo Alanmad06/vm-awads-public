@@ -10,8 +10,10 @@ export const { auth, signIn, signOut } = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        
         const parsedCrendials = loginSchema.safeParse(credentials);
 
+       
         if (!parsedCrendials.success) {
           return null;
         }
@@ -20,6 +22,7 @@ export const { auth, signIn, signOut } = NextAuth({
         try {
           const user = await getUser(email);
 
+        
           if (!user) {
             console.error("Usuario no encontrado");
             return null;
@@ -34,6 +37,8 @@ export const { auth, signIn, signOut } = NextAuth({
             console.error("Contraseña incorrecta");
             return null;
           }
+
+          
 
           return { id: user.id, email: user.email, name: user.name };
         } catch (error) {
@@ -56,4 +61,7 @@ export const { auth, signIn, signOut } = NextAuth({
       return session;
     },
   },
+
 });
+
+
