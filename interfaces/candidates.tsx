@@ -27,3 +27,11 @@ export interface User {
     password? : string
   
 }
+
+export interface verificationCode{
+    id : string,
+    email : string ,
+    code : string,
+    expires_at : Date,
+    created_at : Date
+}

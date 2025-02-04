@@ -6,9 +6,9 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
 
-export default function LoginForm() {
+export default function VerifyEmail() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
   const [message, setMessage] = useState("");
   const [loading , setLoading]= useState(false)
 
@@ -20,14 +20,14 @@ export default function LoginForm() {
     setLoading(true)
     try {
       
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/verifycode", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
-          password,
+          code,
         }),
       });
 
@@ -74,11 +74,11 @@ export default function LoginForm() {
         <label className={styles.form__label}>
           Contraseña:
           <input
-            type="password"
+            type="text"
             className={styles.form__input}
-            value={password}
-            minLength={6}
-            onChange={(e) => setPassword(e.target.value)}
+            value={code}
+            
+            onChange={(e) => setCode(e.target.value)}
             required
           />
         </label>
@@ -107,14 +107,6 @@ export default function LoginForm() {
           </p>
         )}
 
-        <div className={styles.form__text_center}>
-          <p>
-            No tienes una cuenta?{"  "}
-            <Link className={styles.form__link} href="/register" prefetch={true}>
-              Registrate
-            </Link>
-          </p>
-        </div>
       </form>
       <span className={styles.container__titulo}>VM AWARDS</span>
       <span className={styles.container__titulo_aux}>VM AWARDS</span>
