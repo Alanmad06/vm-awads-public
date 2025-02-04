@@ -5,6 +5,7 @@ import SignOutButton from "./signOutButton"
 
 export default async function HomeSession(){
     const authSession = await auth()
+    console.log('AUTJH',authSession)
     return(
         <>
         {(authSession)?<SignOutButton/>:''} 
@@ -19,13 +20,13 @@ export default async function HomeSession(){
         </div>
        
         {(authSession) ?
-        <button className={styles.button}><Link className={styles.button__link}  href='/memes'>
+       <Link className={styles.button__link}  href='/memes'> <button className={styles.button}>
             Comienza a votar ahora
-                  !</Link></button> :
-        <button className={styles.button}>
-          <Link href='/login'>
-            Registrate para empezar a votar !</Link>
-        </button>}
+                  !</button> </Link>:
+         <Link href='/login'> <button className={styles.button}>
+        
+            Registrate para empezar a votar !
+        </button></Link>}
         </div>
         </>
     )

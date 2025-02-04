@@ -21,10 +21,10 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
                 const response = await fetch('/api/getvotes'); 
                 const data = await response.json();
                 
-                console.log('Data from API:', data);
+                
 
                 if (!data.result) {
-                    console.log('No se encontraron votos');
+                    
                     setFadeOut(true); // Activar animación antes de desaparecer
                     setTimeout(() => setLoading(true), 500); // Espera 500ms antes de cambiar `loading`
                     return;
@@ -34,7 +34,7 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
                     ...data.result.votes[key]
                 }));
 
-                console.log('Processed votes:', votesArray);
+                
 
                 dispatch({ type: 'SET_CANDIDATES', payload: votesArray });
 
