@@ -1,21 +1,16 @@
-import { auth } from "@/auth";
-import Link from "next/link";
 
-export default async function Home() {
+import HomeSession from "@/components/homeSession";
+import styles from "./page.module.css"
+import HomeVideo from "@/components/homeVideo";
+import HomeTrailer from "@/components/homeTrailer";
 
-  const authSession = await auth()
+export default function Home() {
 
   return (
-    <div>
-      <p>Bienvenido {(authSession) ? authSession.user?.name : ''} a los</p>
-      <h1>VM AWARDS</h1>
-      {(authSession) ? 
-      <button>Comienza a votar Ahora !</button> :
-       <button>
-        <Link href='/login'>
-        Registrate para empezar a votar !</Link>
-      
-      </button>}
+    <div className={styles.container}>
+      <HomeSession/>
+      <HomeVideo/>
+      <HomeTrailer/>
     </div>
   );
 }
