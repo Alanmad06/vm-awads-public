@@ -4,11 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { Loader2Icon } from "lucide-react";
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [confirmPassword , setConfirmPassword] = useState("")
+  const [loading , setLoading]= useState(false)
   const [message, setMessage] = useState("");
 
   const router = useRouter()
@@ -20,6 +22,7 @@ export default function RegisterForm() {
       return
     }
     setMessage("");
+    setLoading(true)
 
     try {
 
@@ -45,6 +48,7 @@ export default function RegisterForm() {
 
 
       setMessage(`User created successfully`);
+      
       router.push('/login')
     } catch (error) {
       if (error instanceof Error) {
@@ -52,6 +56,8 @@ export default function RegisterForm() {
     } else {
         setMessage("An unknown error occurred.");
     }
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -106,8 +112,8 @@ export default function RegisterForm() {
         <div className={`${styles.stars} ${styles.stars1}`} ></div>
         <div className={`${styles.stars} ${styles.stars2}`} ></div>
         <div className={`${styles.stars} ${styles.stars3}`} ></div>
-        <button type="submit" className={styles.form__button}>
-          Registrarse
+        <button disabled={loading} type="submit" className={styles.form__button}>
+        {(loading)? <Loader2Icon className={styles.form__button__loading}/> : 'Registrarse'}
         </button>
       </div>
 

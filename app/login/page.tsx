@@ -4,19 +4,22 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { Loader2Icon } from "lucide-react";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loading , setLoading]= useState(false)
 
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setMessage("");
-
+    setLoading(true)
     try {
+      
       const response = await fetch("/api/login", {
         method: "POST",
         headers: {
@@ -39,14 +42,18 @@ export default function LoginForm() {
         return;
       }
 
+      
       router.push("/memes");
       
     } catch (error) {
+     
       if (error instanceof Error) {
         setMessage(`Error: ${error.message}`);
       } else {
         setMessage("Error desconocido");
       }
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -81,8 +88,10 @@ export default function LoginForm() {
           <div className={`${styles.stars} ${styles.stars1}`} ></div>
           <div className={`${styles.stars} ${styles.stars2}`} ></div>
           <div className={`${styles.stars} ${styles.stars3}`} ></div>
-          <button type="submit" className={styles.form__button}>
-            Log In
+          <button disabled={loading} type="submit" className={styles.form__button}>
+            {(loading)? <Loader2Icon className={styles.form__button__loading}/> : 'Log In'}
+            
+      
           </button>
         </div>
 

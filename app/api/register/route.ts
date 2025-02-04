@@ -17,7 +17,7 @@ export async function POST(request : Request){
       const parsedCrendials = registerSchema.safeParse({name,email,password})
       if(!parsedCrendials.success){
         const message = parsedCrendials.error.errors[0].message
-        console.log('ppsad',message)
+      
         return NextResponse.json({ error: message }, { status: 400 });
       }
       if (!name || !email || !password) {
