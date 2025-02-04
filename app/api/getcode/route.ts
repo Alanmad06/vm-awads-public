@@ -7,10 +7,10 @@ export async function POST(request : Request) {
     if (!email) return new Response("Email es requestuerido", { status: 400 });
 
     
-    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    
 
-    await createCode(email,code)
-    await sendVerificationEmail(email, code);
+    await createCode(email)
+   
 
     return new Response("Código enviado", { status: 200 });
   } catch (error) {

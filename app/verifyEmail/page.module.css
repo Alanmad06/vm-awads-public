@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: rgba(255, 255, 255, 0.2);
+  
+}
+.button__close{
+    font-family: "Bebas Neue", serif;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    min-width: 1rem;
+    cursor: pointer;
+  }
+  
+.form {
+    font-family: "Bebas Neue", serif;
+    font-size: 1.4rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    
+    width: 90%;
+    max-width: 30rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 0px 10rem 100px #000;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.form__input {
+    font-family: "Bebas Neue", serif;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+
+
+
+.button__container {
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    width: 100%;
+    height: 40px;
+    transition: all ease-in-out .4s;
+}
+.button__container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 50px 0px rgba(255, 255, 255, 0.5);
+}
+
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars1 {
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    box-shadow:
+        120px 15px #FFF,
+        340px 32px #FFF,
+        89px 145px #FFF,
+        210px 110px #FFF,
+        390px 28px #FFF,
+        55px 5px #FFF,
+        275px 40px #FFF,
+        180px 22px #FFF,
+        305px 112px #FFF,
+        260px 148px #FFF,
+        135px 130px #FFF,
+        370px 7px #FFF,
+        95px 117px #FFF,
+        285px 50px #FFF,
+        40px 35px #FFF,
+        355px 44px #FFF,
+        175px 68px #FFF,
+        230px 42px #FFF,
+        140px 127px #FFF,
+        195px 13px #FFF,
+        315px 37px #FFF,
+        65px 23px #FFF,
+        250px 4px #FFF,
+        20px 19px #FFF,
+        390px 31px #FFF,
+        110px 121px #FFF,
+        285px 16px #FFF,
+        200px 46px #FFF,
+        345px 114px #FFF,
+        50px 29px #FFF,
+        365px 39px #FFF,
+        275px 3px #FFF,
+        90px 134px #FFF,
+        175px 124px #FFF,
+        300px 11px #FFF,
+        240px 41px #FFF,
+        20px 149px #FFF,
+        385px 16px #FFF,
+        70px 180px #FFF,
+        130px 33px #FFF;
+    animation: animStar 20s linear infinite;
+}
+
+
+
+.stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    top: 0;
+    left: 0;
+    box-shadow:
+        150px 45px #FFF,
+        320px 190px #FFF,
+        90px 120px #FFF,
+        280px 30px #FFF,
+        60px 180px #FFF,
+        370px 75px #FFF,
+        215px 160px #FFF,
+        130px 25px #FFF,
+        390px 110px #FFF,
+        250px 50px #FFF,
+        40px 170px #FFF,
+        300px 95px #FFF,
+        200px 10px #FFF,
+        355px 145px #FFF,
+        100px 35px #FFF,
+        275px 85px #FFF,
+        15px 190px #FFF,
+        335px 130px #FFF,
+        180px 55px #FFF,
+        220px 175px #FFF;
+    animation: animStar 40s linear infinite;
+}
+
+
+
+.stars3 {
+    width: 2.5px;
+    height: 2.5px;
+    background: transparent;
+    top: 0;
+    left: 0;
+    box-shadow:
+        91px 150px #FFF,
+        320px 72px #FFF,
+        294px 170px #FFF,
+        120px 115px #FFF,
+        196px 131px #FFF,
+        234px 117px #FFF,
+        326px 164px #FFF,
+        303px 110px #FFF,
+        132px 121px #FFF,
+        280px 132px #FFF;
+    animation: animStar 30s linear infinite;
+}
+
+
+
+/* Animación clave */
+@keyframes animStar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-100px);
+      
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+.form__button {
+    font-family:"Bebas Neue", serif;
+    font-size: 1.2rem;
+    width: 100%;
+    background-color: #000000a3;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    border: none;
+    height: 100%;
+}
+
+.form__button:hover {
+    background-color: #000000d3;
+    
+}
+
+
+.form__button__loading {
+  
+  
+  animation: spin 1s linear infinite;
+ 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.form__message {
+    margin-top: 1rem;
+}
+
+.form__message_error {
+    color: #ef4444;
+}
+
+.form__message_success {
+    color: #10b981;
+}
+
+.form__text_center {
+    margin-top: 1rem;
+    text-align: center;
+    color: #000000;
+}
+
+.form__link {
+    color: #fefdfd;
+    text-decoration: none;
+    transition: all ease-in-out .2s;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+    text-shadow: 0px 0px 30px  #FFF;
+    
+}
+
+
+
+  
+
+@keyframes subirTitulo {
+    0% {
+      bottom: 0%;
+      opacity: 0;
+      transform: scale(0.8) rotate(2deg);
+    }
+  
+    100% {
+      bottom: 45%;
+      opacity: 1;
+      transform: scale(1) rotate(2deg);
+    }
+  }
+  
+  @keyframes subirEstela {
+    0% {
+      bottom: 0%;
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+  
+    50% {
+      opacity: 0.4;
+      transform: scale(0.9);
+    }
+  
+    99% {
+      bottom: -100%;
+      opacity: 0.6;
+      transform: scale(1);
+    }
+  
+    100% {
+      display: none;
+    }
+  }
+  
+  
+  

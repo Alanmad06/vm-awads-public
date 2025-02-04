@@ -6,8 +6,8 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
 
-export default function VerifyEmail() {
-  const [email, setEmail] = useState("");
+export default function VerifyEmail({email,name, password , handleIsOpen}: {email : string, name : string, password : string, handleIsOpen: (isOpen: boolean) => void}) {
+ 
   const [code, setCode] = useState("");
   const [message, setMessage] = useState("");
   const [loading , setLoading]= useState(false)
@@ -28,6 +28,8 @@ export default function VerifyEmail() {
         body: JSON.stringify({
           email,
           code,
+          name,
+          password
         }),
       });
 
@@ -59,20 +61,12 @@ export default function VerifyEmail() {
 
   return (
     <div className={styles.container}>
+          <button className={styles.button__close}  onClick={()=>{handleIsOpen(false)}}>X</button> 
       <form onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.form__label}>
-          Email:
-          <input
-            type="email"
-            className={styles.form__input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
+        <p>Se envio un codigo a su email favor de introducirlo aqui</p>
 
         <label className={styles.form__label}>
-          Contraseña:
+          Codigo:
           <input
             type="text"
             className={styles.form__input}
@@ -89,7 +83,7 @@ export default function VerifyEmail() {
           <div className={`${styles.stars} ${styles.stars2}`} ></div>
           <div className={`${styles.stars} ${styles.stars3}`} ></div>
           <button disabled={loading} type="submit" className={styles.form__button}>
-            {(loading)? <Loader2Icon className={styles.form__button__loading}/> : 'Log In'}
+            {(loading)? <Loader2Icon className={styles.form__button__loading}/> : 'Enviar'}
             
       
           </button>
@@ -108,8 +102,7 @@ export default function VerifyEmail() {
         )}
 
       </form>
-      <span className={styles.container__titulo}>VM AWARDS</span>
-      <span className={styles.container__titulo_aux}>VM AWARDS</span>
+      
     </div>
   );
 }

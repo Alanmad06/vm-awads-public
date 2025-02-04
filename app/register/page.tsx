@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
+import VerifyEmail from "../verifyEmail/page";
 
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
@@ -13,8 +14,13 @@ export default function RegisterForm() {
   const [confirmPassword , setConfirmPassword] = useState("")
   const [loading , setLoading]= useState(false)
   const [message, setMessage] = useState("");
+  const [isOpen , setIsOpen] = useState(false)
 
   const router = useRouter()
+
+  const handleIsOpen= ()=>{
+    setIsOpen(false)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,16 +33,13 @@ export default function RegisterForm() {
 
     try {
 
-      const response = await fetch("/api/register", {
+      const response = await fetch("/api/getcode", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
           email,
-          password,
-          confirmPassword
         }),
       });
 
@@ -48,9 +51,9 @@ export default function RegisterForm() {
       
 
 
-      setMessage(`User created successfully`);
       
-      router.push('/login')
+      
+    
     } catch (error) {
       if (error instanceof Error) {
         setMessage(`Error: ${error.message}`);
@@ -59,12 +62,15 @@ export default function RegisterForm() {
     }
     }finally{
       setLoading(false)
+      setIsOpen(true)
     }
   };
 
  
   return (
     <div className={styles.container}>
+   
+     
     <form onSubmit={handleSubmit} className={styles.form}>
     <label className={styles.form__label}>
         Nombre:
@@ -141,6 +147,7 @@ export default function RegisterForm() {
     </form>
     <span className={styles.container__titulo}>VM AWARDS</span>
     <span className={styles.container__titulo_aux}>VM AWARDS</span>
+    {(isOpen)?<VerifyEmail email={email} password={password} name={name} handleIsOpen={handleIsOpen} /> : ''}
   </div>
   );
 }

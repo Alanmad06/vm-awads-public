@@ -8,7 +8,7 @@ export async function createUser(email:string , name : string , password : strin
     const db = await pool.connect()
     try{
        const hashPassword = await hash(password,10)
-            const result : QueryResult<any> = await db.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)',[name,email,hashPassword])
+       const result : QueryResult<any> = await db.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)',[name,email,hashPassword])
       return(result.rows[0])
   
     }catch(e){

@@ -1,6 +1,7 @@
 
 
 import { createUser } from "@/lib/db/createUser";
+import { createCode } from "@/lib/db/verification_codes/createCode";
 import { registerSchema } from "@/lib/schemas/authSchemas";
 import { NextResponse } from "next/server";
 
@@ -27,7 +28,7 @@ export async function POST(request : Request){
         );
       }
      
-      
+      await createCode(email)
       await createUser(email,name,password)
       
       return NextResponse.json({ message: "Usuario registrado correctamente" });
