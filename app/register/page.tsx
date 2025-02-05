@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
 import VerifyEmail from "../verifyEmail/page";
+import ProvidersComponent from "@/components/providers";
 
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ export default function RegisterForm() {
   const [message, setMessage] = useState("");
   const [isOpen , setIsOpen] = useState(false)
 
-  const router = useRouter()
+  
 
   const handleIsOpen= ()=>{
     setIsOpen(false)
@@ -136,6 +136,8 @@ export default function RegisterForm() {
         </p>
       )}
 
+<hr />
+  <ProvidersComponent/>
       <div className={styles.form__text_center}>
         <p>
           Ya tienes una cuenta?{" "}

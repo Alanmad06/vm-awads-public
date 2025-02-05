@@ -4,8 +4,9 @@ import bcrypt from "bcryptjs";
 import { authConfig } from "./auth.config";
 import { getUser } from "./lib/db/getUser";
 import { loginSchema } from "./lib/schemas/authSchemas";
+import Google from "next-auth/providers/google";
 
-export const { auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     CredentialsProvider({
@@ -47,7 +48,14 @@ export const { auth, signIn, signOut } = NextAuth({
         }
       },
     }),
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
   ],
+  pages :{
+    error : '/error'
+  },
   callbacks: {
     jwt({ token, user }) {
       if (user) {

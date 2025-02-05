@@ -5,7 +5,7 @@ import SignOutButton from "./signOutButton"
 
 export default async function HomeSession(){
     const authSession = await auth()
-    console.log('AUTJH',authSession)
+    
     return(
         <>
         {(authSession)?<SignOutButton/>:''} 
