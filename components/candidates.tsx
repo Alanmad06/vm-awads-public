@@ -6,6 +6,7 @@ import { useRef } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import navigationList from '@/lib/navigation';
+import { Node } from 'dbly-linked-list';
 
 
 
@@ -37,10 +38,11 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
         dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
       }
 
-      const node = navigationList.find(`/${category}`);
-      if (node && typeof node === "object" && "next" in node) {
+      const node = navigationList.find((n: Node) => n.data === `/${category}`) as Node | undefined;
+      if (node !== undefined) {
         router.push(node.next?.data.toString() ?? '/');
       }
+
     } else {
       console.error(`Candidate with id ${id} not found`);
     }
