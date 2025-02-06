@@ -117,7 +117,7 @@ export default function LoginForm() {
         <div className={styles.form__text_center}>
           <p>
             No tienes una cuenta?{"  "}
-            <Link className={styles.form__link} href="/register" prefetch={true}>
+            <Link className={styles.form__link} href="/register" >
               Registrate
             </Link>
           </p>
