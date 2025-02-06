@@ -5,7 +5,7 @@ import Candidates from "@/components/candidates";
 import Container from "@/components/container";
 import { Candidate } from '@/interfaces/candidates';
 import styles from './page.module.css';
-import SubmitButton from "@/components/submitButton";
+
 
 
 const candidates: Candidate[] = [
