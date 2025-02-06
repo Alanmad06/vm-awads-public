@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import '@/app/__styles/page.css';
-import { CandidatesProvider } from "@/context/candidatesContext";
-import SubmitButton from "@/components/submitButton";
 import { ToastContainer } from "react-toastify";
 
 
@@ -20,11 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-        
-          {children}
-         
-       
-        <ToastContainer/>
+
+        {children}
+
+
+        <ToastContainer />
 
       </body>
     </html>

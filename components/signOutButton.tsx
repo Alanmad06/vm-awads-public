@@ -11,7 +11,7 @@ export default function SignOutButton() {
 
     const handleSignOut = async () => {
         try {
-            const result = await fetch('api/signout', {
+             await fetch('api/signout', {
                 method: 'POST',
             })
 

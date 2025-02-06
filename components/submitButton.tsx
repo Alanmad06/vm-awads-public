@@ -2,9 +2,9 @@
 import { selectedCandidate } from "@/interfaces/candidates"
 import { toast } from "react-toastify";
 import styles from "./styles/submitButton.module.css"
-import { useState } from "react";
 
-export default function submitButton({ selectedCandidates, index }: { selectedCandidates: selectedCandidate[],  index: number }) {
+
+export default function submitButton({ selectedCandidates }: { selectedCandidates: selectedCandidate[] }) {
 
     let disabled = true
     

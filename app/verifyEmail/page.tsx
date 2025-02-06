@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
-import { signIn } from "@/auth";
+
 
 
 export default function VerifyEmail({ email, password, handleIsOpen }: { email: string, password: string, handleIsOpen: (isOpen: boolean) => void }) {

@@ -1,5 +1,4 @@
-import { selectedCandidate, User } from '@/interfaces/candidates';
-import { Pool, QueryResult } from 'pg';
+import { Pool } from 'pg';
 
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
