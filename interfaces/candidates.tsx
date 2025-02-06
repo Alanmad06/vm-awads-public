@@ -29,9 +29,9 @@ export interface User {
 }
 
 export interface verificationCode{
-    id : string,
-    email : string ,
-    code : string,
-    expires_at : Date,
-    created_at : Date
+    id ?: string,
+    email ?: string ,
+    code ?: string,
+    expires_at ?: Date,
+    created_at ?: Date
 }
