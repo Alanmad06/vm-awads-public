@@ -7,7 +7,7 @@ import { Loader2Icon } from "lucide-react";
 
 
 
-export default function VerifyEmail({ email, password, handleIsOpen }: { email: string, password: string, handleIsOpen: (isOpen: boolean) => void }) {
+export default function VerifyEmail({ email, password, handleIsOpen }: { email: string, password: string, handleIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
 
     const [code, setCode] = useState("");
     const [message, setMessage] = useState("");
