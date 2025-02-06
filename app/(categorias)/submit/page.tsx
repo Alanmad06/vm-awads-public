@@ -33,7 +33,7 @@ export default function SubmitPage() {
               key={category}
               className={`container__candidatos ${estilo}`}>
 
-              {(isSubmit) ? <SubmitButton index={index + 1} selectedCandidates={candidates} /> : <Link
+              {(isSubmit) ? <SubmitButton selectedCandidates={candidates} /> : <Link
                 href={category}>
                 <input
                   type="radio"
