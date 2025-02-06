@@ -75,9 +75,7 @@
 
 .welcome{
     font-size: clamp(1rem, 2rem, 200px);
-    strong{
-        color: #8f8f8a;
-    }
+    
 }
 
 .button{
