@@ -1,5 +1,6 @@
 import { signIn } from "next-auth/react"
 import styles from "./styles/providersComponent.module.css"
+import Image from "next/image"
 
 export default function Providers(){
 
@@ -10,8 +11,8 @@ export default function Providers(){
     return(
         <div className={styles.container__providers}>
             <button className={styles.providers__button} type="button" onClick={()=>{handleProvider()}}>
-            <img src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA" width={20} alt="" />
- 
+            <Image src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA" width={20} height={20} alt="Google logo" />
+
             </button>
         </div>
     )
