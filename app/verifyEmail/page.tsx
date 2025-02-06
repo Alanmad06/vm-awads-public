@@ -13,7 +13,7 @@ interface VerifyEmailProps {
     handleIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function VerifyEmail({ email, password, handleIsOpen }: VerifyEmailProps) {
+export function VerifyEmail({ email, password, handleIsOpen }: VerifyEmailProps) {
 
     const [code, setCode] = useState("");
     const [message, setMessage] = useState("");
