@@ -31,7 +31,7 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
   const handleSelect: HandleSelect = (id: string) => {
     const selected = candidates.find((candidate) => candidate.id === id); 
     
-    
+
     if (selected) {
       selectedCandidate.current = id;
       if (isCategoryStored) {
@@ -40,10 +40,10 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
         dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
       }
 
-      const node = navigationList.find((n: Node) => n.data === `/${category}`) as unknown as Node | undefined;
+      const node = navigationList.find(`/${category}`) as unknown as Node ;
 
       if (node !== undefined) {
-        router.push(node.next?.data.toString() ?? '/');
+        router.push((node as Node).next?.data.toString() ?? '/');
       }
 
     } else {
