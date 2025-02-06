@@ -31,8 +31,19 @@ export default function submitButton({ selectedCandidates, index }: { selectedCa
                 body: JSON.stringify(selectedCandidates)
             })
             const data = await response.json();
+
+            toast.info(data.message,{
+                className: styles.toast,
+                closeOnClick: true
+                
+               })
             
         } catch (e) {
+            toast.error(e as string,{
+                className: styles.toast,
+                closeOnClick: true
+                
+               })
             console.error(e)
         }
     }

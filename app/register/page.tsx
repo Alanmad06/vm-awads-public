@@ -10,7 +10,7 @@ import ProvidersComponent from "@/components/providersComponent";
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+
   const [confirmPassword , setConfirmPassword] = useState("")
   const [loading , setLoading]= useState(false)
   const [message, setMessage] = useState("");
@@ -72,16 +72,7 @@ export default function RegisterForm() {
    
      
     <form onSubmit={handleSubmit} className={styles.form}>
-    <label className={styles.form__label}>
-        Nombre:
-        <input
-          type="text"
-          className={styles.form__input}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </label>
+    
       <label className={styles.form__label}>
         Email:
         <input
@@ -149,7 +140,7 @@ export default function RegisterForm() {
     </form>
     <span className={styles.container__titulo}>VM AWARDS</span>
     <span className={styles.container__titulo_aux}>VM AWARDS</span>
-    {(isOpen)?<VerifyEmail email={email} password={password} name={name} handleIsOpen={handleIsOpen} /> : ''}
+    {(isOpen)?<VerifyEmail email={email} password={password} handleIsOpen={handleIsOpen} /> : ''}
   </div>
   );
 }

@@ -11,7 +11,7 @@ export default async function HomeSession(){
         {(authSession)?<SignOutButton/>:''} 
         <div className={styles.container}>
 
-        <p className={styles.welcome}>Bienvenido <strong>{(authSession) ? authSession.user?.name : ''}</strong> a los</p>
+        <p className={styles.welcome}>Bienvenido a los</p>
         <div className={styles.container__title}>
         <h1 className={styles.title}>VM AWARDS</h1>
         <div className={styles.title__aux}>VM AWARDS</div>

@@ -11,7 +11,7 @@ export async function POST(request : Request){
 
    
     try{
-      const {name , email , password, confirmPassword} = await request.json()
+      const { email , password, confirmPassword} = await request.json()
       if(password !==confirmPassword){
         return NextResponse.json({ error: "Contraseñas no coinciden" }, { status: 400 });
       }
@@ -21,7 +21,7 @@ export async function POST(request : Request){
       
         return NextResponse.json({ error: message }, { status: 400 });
       }
-      if (!name || !email || !password) {
+      if ( !email || !password) {
         return NextResponse.json(
           { error: "Campos requeridos faltantes" },
           { status: 400 }
@@ -29,7 +29,7 @@ export async function POST(request : Request){
       }
      
       await createCode(email)
-      await createUser(email,name,password)
+      await createUser(email,password)
       
       return NextResponse.json({ message: "Usuario registrado correctamente" });
   

@@ -8,56 +8,56 @@ import { selectedCandidate } from "@/interfaces/candidates";
 import Image from 'next/image';
 import Link from "next/link";
 
-export default function SubmitPage(){
-    let {candidates} = useCandidates()
-    const submit : selectedCandidate ={
-        candidate:{
-            id :'submit',
-            name : 'submit',
-            alt: '',
-            src:'/submit'
-        },
-        category : 'submit'
-    }
-    candidates = [...candidates,submit]
-    return(
-        <div className={styles.container}>
-            <Container category="VOTOS">
-                {candidates && candidates.map((selectedCandidate: selectedCandidate,index) => {
-                        const {candidate ,category}  =selectedCandidate
-                        const estilo = styles[category];
-                        const isSubmit = (index===candidates.length-1) ? true : false
-                        
-                        return (
-                          <div
-                            key={category}
-                            className={`container__candidatos ${estilo}`}>
+export default function SubmitPage() {
+  let { candidates } = useCandidates()
+  const submit: selectedCandidate = {
+    candidate: {
+      id: 'submit',
+      name: 'submit',
+      alt: '',
+      src: '/submit'
+    },
+    category: 'submit'
+  }
+  candidates = [...candidates, submit]
+  return (
+    <div className={styles.container}>
+      <Container category="VOTOS">
+        {candidates && candidates.map((selectedCandidate: selectedCandidate, index) => {
+          const { candidate, category } = selectedCandidate
+          const estilo = styles[category];
+          const isSubmit = (index === candidates.length - 1) ? true : false
 
-                               {(isSubmit) ?  <SubmitButton index={index+1} selectedCandidates={candidates} /> : <Link
-                                href={category}>
-                            <input
-                              type="radio"
-                              id={category}
-                              className={'container__candidatos__input'}
-                              name="candidatos"
-                              
-                             
-                            />
-                            <label htmlFor={category}  >
-                              <Image
-                                className={'container__candidatos__img'}
-                                src={candidate.src!}
-                                alt={candidate.alt!}
-                                fill={true}
-                              />
-                            </label>
-                            </Link>}
-                          </div>
-                        );
-                      })}
-            </Container>
-           
-        
-        </div>
-    )
+          return (
+            <div
+              key={category}
+              className={`container__candidatos ${estilo}`}>
+
+              {(isSubmit) ? <SubmitButton index={index + 1} selectedCandidates={candidates} /> : <Link
+                href={category}>
+                <input
+                  type="radio"
+                  id={category}
+                  className={'container__candidatos__input'}
+                  name="candidatos"
+
+
+                />
+                <label htmlFor={category}  >
+                  <Image
+                    className={'container__candidatos__img'}
+                    src={candidate.src!}
+                    alt={candidate.alt!}
+                    fill={true}
+                  />
+                </label>
+              </Link>}
+            </div>
+          );
+        })}
+      </Container>
+
+
+    </div>
+  )
 }

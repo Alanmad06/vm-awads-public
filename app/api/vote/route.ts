@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       return acc;
     }, {});
 
-    const isAlreadyVote = !!await getVotes(id!)
+    const isAlreadyVote = !!await getVotes(email!)
     if(isAlreadyVote){
       await db.query(
         'UPDATE users_votes SET votes = ($1) WHERE email = ($2)',
@@ -48,8 +48,8 @@ export async function POST(request: Request) {
     console.log(id)
     
      await db.query(
-        'INSERT INTO users_votes (user_id, votes,email) VALUES ($1, $2,$3)',
-        [id, selectedCandidatesObj , email]
+        'INSERT INTO users_votes (user_id, votes,email) VALUES ((SELECT id FROM users WHERE email = $2), $1, $2);',
+        [ selectedCandidatesObj , email]
       );
     return NextResponse.json({ message: "Voto registrado correctamente" });
   } catch (e) {

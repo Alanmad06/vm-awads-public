@@ -6,7 +6,7 @@ import { getUser } from "./lib/db/getUser";
 import { loginSchema } from "./lib/schemas/authSchemas";
 import Google from "next-auth/providers/google";
 import { Pool } from "pg";
-import { createUser, createUserWIithID } from "./lib/db/createUser";
+import { createUser } from "./lib/db/createUser";
 
 
 
@@ -55,7 +55,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (account?.provider === "google") {
         try {
           const isUser = !!await getUser(user.email!);
-          if(!isUser)  await createUserWIithID(user.id!,user.email!, user.name!, "")
+          if(!isUser)  await createUser(user.email!, "")
        
         
         } catch (error) {

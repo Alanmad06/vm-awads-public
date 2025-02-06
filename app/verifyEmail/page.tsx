@@ -8,7 +8,7 @@ import { Loader2Icon } from "lucide-react";
 import { signIn } from "@/auth";
 
 
-export default function VerifyEmail({ email, name, password, handleIsOpen }: { email: string, name: string, password: string, handleIsOpen: (isOpen: boolean) => void }) {
+export default function VerifyEmail({ email, password, handleIsOpen }: { email: string, password: string, handleIsOpen: (isOpen: boolean) => void }) {
 
     const [code, setCode] = useState("");
     const [message, setMessage] = useState("");
@@ -30,7 +30,6 @@ export default function VerifyEmail({ email, name, password, handleIsOpen }: { e
                 body: JSON.stringify({
                     email,
                     code,
-                    name,
                     password
                 }),
             });
