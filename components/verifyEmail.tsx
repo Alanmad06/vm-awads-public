@@ -43,7 +43,7 @@ export function VerifyEmail({ email, password, handleIsOpen }: VerifyEmailProps)
                 const res = await response.json();
                 console.log(res);
                 if (res.error) {
-                    setMessage("Error: Credenciales Invalidas");
+                    setMessage("Error: Credenciales / Codigo Invalido");
                 } else {
                     setMessage(`Error: Algo inesperado paso al hacer login ${res.error}`);
                 }
@@ -58,7 +58,7 @@ export function VerifyEmail({ email, password, handleIsOpen }: VerifyEmailProps)
         } catch (error) {
             console.log(error)
             if (error instanceof Error) {
-                setMessage(`Error: ${error.message}`);
+                setMessage(`Error: Credenciales / Codigo Invalido`);
             } else {
                 setMessage("Error desconocido");
             }
