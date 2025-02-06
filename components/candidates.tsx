@@ -29,7 +29,9 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
   const router = useRouter();
 
   const handleSelect: HandleSelect = (id: string) => {
-    const selected = candidates.find((candidate) => candidate.id === id);
+    const selected = candidates.find((candidate) => candidate.id === id); 
+    
+    
     if (selected) {
       selectedCandidate.current = id;
       if (isCategoryStored) {
