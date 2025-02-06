@@ -138,8 +138,8 @@ export default function RegisterForm() {
         </p>
       </div>
     </form>
-    <span className={styles.container__titulo}>VM AWARDS</span>
-    <span className={styles.container__titulo_aux}>VM AWARDS</span>
+    {/* <span className={styles.container__titulo}>VM AWARDS</span>
+    <span className={styles.container__titulo_aux}>VM AWARDS</span> */}
     {(isOpen)?<VerifyEmail email={email} password={password} handleIsOpen={handleIsOpen} /> : ''}
   </div>
   );

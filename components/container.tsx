@@ -11,8 +11,8 @@ export default function Container({children , category} : {children : React.Reac
            {children}
            <span className="container__titulo_3">VOTA POR TU FAVORITO</span>
          </div>
-         <span className="container__titulo">VM AWARDS</span>
-         <span className="container__titulo_2">VM AWARDS</span>
+       {/*   <span className="container__titulo">VM AWARDS</span>
+         <span className="container__titulo_2">VM AWARDS</span> */}
      
        </div>
   );

@@ -83,8 +83,16 @@
   
 }
 
+.container__titulo_3 {
+  font-family: Bebas Neue, serif;
+  font-weight: 500;
+
+  color: #f0f8ff;
+} 
 
 
+
+/* 
 .container__titulo {
   font-family: Bebas Neue, serif;
   font-weight: 500;
@@ -115,12 +123,6 @@
   visibility: hidden;
 }
 
-.container__titulo_3 {
-  font-family: Bebas Neue, serif;
-  font-weight: 500;
-
-  color: #f0f8ff;
-}
 
 .container__titulo::before {
   animation: subirEstela2 16s ease-out infinite;
@@ -187,7 +189,7 @@
   100% {
     display: none;
   }
-}
+} */
 
 @media (min-width: 350px) {
   .container_aux {
