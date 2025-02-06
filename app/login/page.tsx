@@ -21,7 +21,7 @@ export default function LoginForm() {
     setLoading(true)
     try {
 
-      const response = await fetch("https://vm-awads-public.vercel.app/api/login", {
+      const response = await fetch("/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

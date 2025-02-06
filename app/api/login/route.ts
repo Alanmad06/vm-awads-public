@@ -3,9 +3,13 @@ import { AuthError } from "next-auth";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const {email , password} = await request.json();
     
-    await signIn("credentials", body);
+    await signIn("credentials", {
+      email ,
+      password,
+      redirect : false
+    });
 
    
   } catch (error) {
