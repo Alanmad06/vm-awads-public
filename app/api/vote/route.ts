@@ -15,13 +15,9 @@ export async function POST(request: Request) {
   try {
     const user = await auth()
     
-    if(user && user?.user?.id && user?.user?.email!) {
-      id = user!.user!.id
-      email = user!.user!.email!
-    }else{
-      return NextResponse.json({
-        error: "Usuario no encontrado o sin email",
-      });
+    if(user ) {
+      id = user?.user!.id
+      email = user?.user?.email!
     }
   
    
@@ -32,7 +28,7 @@ export async function POST(request: Request) {
         const diff = navigationObjLength - selectedCandidates.length 
         return NextResponse.json({ error: `Faltan ${diff} categorias por votar` }, { status: 400 })
     }
-    const selectedCandidatesObj = selectedCandidates.reduce((acc: any, candidate: any,index : number) => {
+    const selectedCandidatesObj: Record<number, selectedCandidate> = selectedCandidates.reduce((acc: Record<number, selectedCandidate>, candidate, index: number) => {
       acc[index+1] = candidate;
       return acc;
     }, {});
