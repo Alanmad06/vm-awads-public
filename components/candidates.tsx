@@ -38,7 +38,8 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
         dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
       }
 
-      const node = navigationList.find((n: Node) => n.data === `/${category}`) as Node | undefined;
+      const node = navigationList.find((n: Node) => n.data === `/${category}`) as unknown as Node | undefined;
+
       if (node !== undefined) {
         router.push(node.next?.data.toString() ?? '/');
       }
