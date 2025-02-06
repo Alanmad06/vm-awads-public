@@ -12,7 +12,7 @@ export async function GET() {
             error: `Usuario no encontrado`,
           });
     }
-    const result  = await getVotes(user?.user?.id!)
+    const result  = await getVotes(user?.user?.email!)
 
     if(result && result.votes){
       return NextResponse.json({

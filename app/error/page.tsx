@@ -1,6 +1,6 @@
 // pages/api/auth/error.tsx
 
-import ProvidersComponent from "@/components/providers";
+import ProvidersComponent from "@/components/providersComponent";
 
 
 

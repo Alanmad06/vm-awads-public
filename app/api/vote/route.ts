@@ -11,10 +11,14 @@ export async function POST(request: Request) {
   const db = await pool.connect();
   const navigationObjLength = Object.keys(navigationObj).length-1;
   let id : string | undefined;
+  let email : string | undefined;
   try {
     const user = await auth()
     
-    if(user) id = user?.user!.id
+    if(user) {
+      id = user?.user!.id
+      email = user?.user?.email!
+    }
   
    
     const selectedCandidates : selectedCandidate[] = await request.json();
@@ -32,8 +36,8 @@ export async function POST(request: Request) {
     const isAlreadyVote = !!await getVotes(id!)
     if(isAlreadyVote){
       await db.query(
-        'UPDATE users_votes SET votes = ($1) WHERE user_id = ($2)',
-        [ selectedCandidatesObj,id]
+        'UPDATE users_votes SET votes = ($1) WHERE email = ($2)',
+        [ selectedCandidatesObj,email]
       );
       return NextResponse.json({ message: "Voto actualizado correctamente" });
     }
@@ -41,10 +45,11 @@ export async function POST(request: Request) {
     
     if (!selectedCandidates) return NextResponse.json({ error: "No hay votos registrados" }, { status: 400 });
 
+    console.log(id)
     
      await db.query(
-        'INSERT INTO users_votes (user_id, votes) VALUES ($1, $2)',
-        [id, selectedCandidatesObj]
+        'INSERT INTO users_votes (user_id, votes,email) VALUES ($1, $2,$3)',
+        [id, selectedCandidatesObj , email]
       );
     return NextResponse.json({ message: "Voto registrado correctamente" });
   } catch (e) {
