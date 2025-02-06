@@ -38,11 +38,8 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
       }
 
       const node: Node | number = navigationList.find(`/${category}`);
-      if (node && typeof node === 'object') {
-        if (category === 'vm') {
-          router.push('/submit');
-          return;
-        }
+      if (node && node instanceof Node) {
+        
         router.push(node.next?.data.toString() ?? '/');
       }
     } else {
