@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
-import {VerifyEmail} from "../verifyEmail/page";
+import {VerifyEmail} from "../verifyEmail/verifyEmail";
 import ProvidersComponent from "@/components/providersComponent";
 
 export default function RegisterForm() {
