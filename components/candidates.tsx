@@ -6,7 +6,7 @@ import { useRef } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import navigationList from '@/lib/navigation';
-import { Node } from 'dbly-linked-list';
+
 
 
 type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'mascota' | 'categoria1' | 'categoria2' | 'categoria3' | 'tiktoker' | 'categoria4' | 'categoria5' | 'categoria6' | 'categoria7' | 'vm';
@@ -37,9 +37,8 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
         dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
       }
 
-      const node: Node | number = navigationList.find(`/${category}`);
-      if (node && node instanceof Node) {
-        
+      const node = navigationList.find(`/${category}`);
+      if (node && typeof node === "object" && "next" in node) {
         router.push(node.next?.data.toString() ?? '/');
       }
     } else {
