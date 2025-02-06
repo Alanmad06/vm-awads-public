@@ -36,6 +36,12 @@ export async function POST(request: Request) {
     }
     
     
-    throw error
+    return new Response(
+      JSON.stringify({ error: "Error Desconocido" }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      }
+    )
   }
 }
