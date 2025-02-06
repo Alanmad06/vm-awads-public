@@ -35,7 +35,7 @@ export default function LoginForm() {
 
       
      
-      if (!response.ok) {
+      /* if (!response.ok) {
         const res = await response.json();
         console.log(res);
         if (res.error) {
@@ -44,7 +44,7 @@ export default function LoginForm() {
           setMessage(`Error: Algo inesperado paso al hacer login ${res.error}`);
         }
         return;
-      }
+      } */
 
 
       router.push("/memes");

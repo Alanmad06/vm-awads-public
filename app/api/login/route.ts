@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     await signIn("credentials", {
       email ,
       password,
-      redirectTo : '/memes'
+      redirect:false
     });
 
    
