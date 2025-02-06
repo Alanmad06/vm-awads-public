@@ -6,14 +6,14 @@ import getCode from "@/lib/db/verification_codes/getCode";
 
 export async function POST(request : Request) {
     try {
-      const { email, code ,name,password} = await request.json();
-      if (!email || !code || !name || !password) return new Response("Datos incompletos", { status: 400 });
+      const { email, code ,password} = await request.json();
+      if (!email || !code || !password) return new Response("Datos incompletos", { status: 400 });
   
      
       const codeDB = await getCode(email)
      
   
-      if (!codeDB|| codeDB.expires_at.getTime() < Date.now()) {
+      if (!codeDB||!codeDB.expires_at || codeDB.expires_at.getTime() < Date.now()) {
         return new Response("Código expirado o no válido", { status: 400 });
       }
   
@@ -23,7 +23,7 @@ export async function POST(request : Request) {
   
       
       await deleteCode(email)
-      await createUser(email,name,password)
+      await createUser(email,password)
       await signIn('credentials',{
         email ,
         password,
