@@ -11,26 +11,35 @@ import { Node } from 'dbly-linked-list';
 
 type Category = '' | 'memes' | 'evento' | 'familiar' | 'gamer' | 'juego' | 'mascota' | 'categoria1' | 'categoria2' | 'categoria3' | 'tiktoker' | 'categoria4' | 'categoria5' | 'categoria6' | 'categoria7' | 'vm';
 
-export default function Candidates({ candidates, category, styles }: { candidates: Candidate[], category: Category, styles: any }) {
-  const { candidates : candidatesStored, dispatch } = useCandidates();
-  const selectedCandidate= useRef('');
-  const isCategoryStored = !!candidatesStored.find((storedCandidate : selectedCandidate) => storedCandidate.category === category);
+interface CandidatesProps {
+  candidates: Candidate[];
+  category: Category;
+  styles: { [key: string]: string };
+}
+
+interface HandleSelect {
+  (id: string): void;
+}
+
+export default function Candidates({ candidates, category, styles }: CandidatesProps) {
+  const { candidates: candidatesStored, dispatch } = useCandidates();
+  const selectedCandidate = useRef<string>('');
+  const isCategoryStored = !!candidatesStored.find((storedCandidate: selectedCandidate) => storedCandidate.category === category);
   const router = useRouter();
 
-  const handleSelect = (id: string) => {
-        
+  const handleSelect: HandleSelect = (id: string) => {
     const selected = candidates.find((candidate) => candidate.id === id);
     if (selected) {
       selectedCandidate.current = id;
-      if(isCategoryStored){
-        dispatch({ type: 'UPDATE_CANDIDATE', payload: { category , candidate: selected } });
-      }else{
+      if (isCategoryStored) {
+        dispatch({ type: 'UPDATE_CANDIDATE', payload: { category, candidate: selected } });
+      } else {
         dispatch({ type: 'ADD_CANDIDATE', payload: { category, candidate: selected } });
       }
-      
-      const node : Node | number = navigationList.find(`/${category}`);
+
+      const node: Node | number = navigationList.find(`/${category}`);
       if (node && typeof node === 'object') {
-        if(category==='vm') {
+        if (category === 'vm') {
           router.push('/submit');
           return;
         }
@@ -45,14 +54,14 @@ export default function Candidates({ candidates, category, styles }: { candidate
     <>
       {candidates.map((candidate: Candidate) => {
         let estilo = '';
-        const isChecked = !!candidatesStored.find((storedCandidate : selectedCandidate) => storedCandidate.candidate.id === candidate.id && storedCandidate.category === category);
+        const isChecked = !!candidatesStored.find((storedCandidate: selectedCandidate) => storedCandidate.candidate.id === candidate.id && storedCandidate.category === category);
 
         if (isChecked) {
-          selectedCandidate.current=candidate.id;
-          if(selectedCandidate.current === candidate.id) {  
+          selectedCandidate.current = candidate.id;
+          if (selectedCandidate.current === candidate.id) {
             estilo = 'selected';
           }
-        } else if (selectedCandidate.current &&  selectedCandidate.current !== candidate.id) {
+        } else if (selectedCandidate.current && selectedCandidate.current !== candidate.id) {
           estilo = 'not';
         }
 
