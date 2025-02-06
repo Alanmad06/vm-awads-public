@@ -10,10 +10,10 @@ export async function createUser(email:string , password : string | undefined ) 
        
         if(password){
             const hashPassword = await hash(password,10)
-           const result : QueryResult<any> = await db.query('INSERT INTO users (email, password) VALUES ($1, $2)',[,email,hashPassword])
+           const result : QueryResult = await db.query('INSERT INTO users (email, password) VALUES ($1, $2)',[email,hashPassword])
             return(result.rows[0])
         }else{
-            const result : QueryResult<any> = await db.query('INSERT INTO users (email) VALUES ($1, $2)',[email])
+            const result : QueryResult= await db.query('INSERT INTO users (email) VALUES ($1, $2)',[email])
              return(result.rows[0])
         }
        

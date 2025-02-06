@@ -2,11 +2,11 @@
 import { QueryResult } from "pg"
 import { pool } from "./db"
 
-export async function getVerified(id:string) : Promise<Boolean | undefined>{
+export async function getVerified(id:string) : Promise<boolean | undefined>{
     const db = await pool.connect()
     try{
       const result : QueryResult<Boolean> = await db.query('SELECT verified FROM users WHERE id = ($1)',[id])
-      return(result.rows[0])
+      return(result.rows[0] ? true : false)
   
     }catch(e){
      console.error(e)

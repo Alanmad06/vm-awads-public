@@ -2,7 +2,7 @@ import { QueryResult } from "pg"
 import { pool } from "./db"
 
 type Votes ={
-  votes : {}
+  votes : object
 }
 
 export async function getVotes(email:string) : Promise<Votes | undefined>{
@@ -15,6 +15,7 @@ export async function getVotes(email:string) : Promise<Votes | undefined>{
       return(result.rows[0])
   
     }catch(e){
+      console.error(e)
      
      return undefined
     }finally{
