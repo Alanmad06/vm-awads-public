@@ -5,12 +5,13 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
+import ProvidersComponent from "@/components/providersComponent";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [loading , setLoading]= useState(false)
+  const [loading, setLoading] = useState(false)
 
   const router = useRouter();
 
@@ -19,7 +20,7 @@ export default function LoginForm() {
     setMessage("");
     setLoading(true)
     try {
-      
+
       const response = await fetch("/api/login", {
         method: "POST",
         headers: {
@@ -42,17 +43,17 @@ export default function LoginForm() {
         return;
       }
 
-      
+
       router.push("/memes");
-      
+
     } catch (error) {
-     
+
       if (error instanceof Error) {
         setMessage(`Error: ${error.message}`);
       } else {
         setMessage("Error desconocido");
       }
-    } finally{
+    } finally {
       setLoading(false)
     }
   };
@@ -83,30 +84,31 @@ export default function LoginForm() {
           />
         </label>
 
-      
+
         <div className={styles.button__container}>
           <div className={`${styles.stars} ${styles.stars1}`} ></div>
           <div className={`${styles.stars} ${styles.stars2}`} ></div>
           <div className={`${styles.stars} ${styles.stars3}`} ></div>
           <button disabled={loading} type="submit" className={styles.form__button}>
-            {(loading)? <Loader2Icon className={styles.form__button__loading}/> : 'Log In'}
-            
-      
+            {(loading) ? <Loader2Icon className={styles.form__button__loading} /> : 'Log In'}
+
+
           </button>
         </div>
 
         {message && (
           <p
-            className={`${styles.form__message} ${
-              message.startsWith("Error")
+            className={`${styles.form__message} ${message.startsWith("Error")
                 ? styles.form__message_error
                 : styles.form__message_success
-            }`}
+              }`}
           >
             {message.startsWith("Error") ? message.slice(6) : message}
           </p>
         )}
 
+        <hr className={styles.form__hr} />
+        <ProvidersComponent />
         <div className={styles.form__text_center}>
           <p>
             No tienes una cuenta?{"  "}

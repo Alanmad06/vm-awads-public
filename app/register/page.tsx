@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { Loader2Icon } from "lucide-react";
 import VerifyEmail from "../verifyEmail/page";
-import ProvidersComponent from "@/components/providers";
+import ProvidersComponent from "@/components/providersComponent";
 
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
@@ -136,7 +136,7 @@ export default function RegisterForm() {
         </p>
       )}
 
-<hr />
+    <hr className={styles.form__hr}/>
   <ProvidersComponent/>
       <div className={styles.form__text_center}>
         <p>
