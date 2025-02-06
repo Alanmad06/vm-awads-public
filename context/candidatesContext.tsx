@@ -57,7 +57,7 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
 
 export const useCandidates = (): CandidatesContextProps => {
     const context = useContext(CandidatesContext);
-    console.log('context', context);
+    
 
     if (!context) {
         throw new Error('useCandidates must be used within a CandidatesProvider');
