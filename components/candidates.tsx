@@ -28,6 +28,12 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
   const isCategoryStored = !!candidatesStored.find((storedCandidate: selectedCandidate) => storedCandidate.category === category);
   const router = useRouter();
 
+  if(isCategoryStored){
+    selectedCandidate.current = candidatesStored.find(((storedCandidate: selectedCandidate) => storedCandidate.category === category))?.candidate.id as string
+  }
+
+
+
   
   const handleSelect: HandleSelect = (id: string) => {
     const selected = candidates.find((candidate) => candidate.id === id); 
@@ -59,7 +65,7 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
         let estilo = '';
         const isChecked = !!candidatesStored.find((storedCandidate: selectedCandidate) => storedCandidate.candidate.id === candidate.id && storedCandidate.category === category);
 
-        console.log(isChecked,candidate)
+        
         if (isChecked) {
           selectedCandidate.current = candidate.id;
           if (selectedCandidate.current === candidate.id) {

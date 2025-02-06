@@ -14,16 +14,14 @@ export default async function HomeSession(){
         <p className={styles.welcome}>Bienvenido a los</p>
         <div className={styles.container__title}>
         <h1 className={styles.title}>VM AWARDS</h1>
-        <div className={styles.title__aux}>VM AWARDS</div>
-        <div className={styles.title__aux2}>VM AWARDS</div>
-        <div className={styles.title__aux3}>VM AWARDS</div>
+        
         </div>
        
         {(authSession) ?
-       <Link className={styles.button__link}  href='/memes'> <button className={styles.button}>
+       <Link className={styles.button__link}  href='/memes'> <button >
             Comienza a votar ahora
                   !</button> </Link>:
-         <Link href='/login'> <button className={styles.button}>
+         <Link href='/login' className={styles.button__link}> <button className={styles.button}>
         
             Registrate para empezar a votar !
         </button></Link>}

@@ -4,6 +4,8 @@
     font-family: "Bebas Neue", serif;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .container__title{
     position: relative;
@@ -12,66 +14,12 @@
 }
 .title {
     font-size: clamp(4rem, 10vw, 400px);
-    color: #efb710b1; /* Texto visible */
+    color: rgba(255, 255, 255, 0.816); /* Texto visible */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
                  0 0 30px rgba(255, 255, 255, 0.5); /* Efecto glow */
     position: relative;
 }
 
-.title__aux{
-     position: absolute;
-     font-size: clamp(2rem, 4vw, 200px);
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%,-50%);
-     animation: titleAnimation ease-in-out 15s infinite;
-    
-     z-index: -2;
-}
-.title__aux::after{
-    content: 'VM AWARDS';
-    position: absolute;
-    font-size: clamp(2rem, 2vw, 200px);
-    top: 50%;
-    left: 50%;
-    transform: translate(20%,20%);
-    animation: titleAnimation ease-in-out 12s infinite;
-   
-    z-index: -2;
-}
-.title__aux2{
-    position: absolute;
-    font-size: clamp(2rem, 4vw, 200px);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    animation: titleAnimation2 ease-in-out 15s infinite;
-   
-    z-index: -2;
-}
-
-.title__aux2::before{
-    content: 'VM AWARDS';
-    position: absolute;
-    font-family: "Bebas Neue", serif;
-    top: 50%;
-    left: 50%;
-    transform: translate(70%,70%);
-    font-size: clamp(1rem, 2vw, 100px);
-    animation: titleAnimation2 ease-in-out 12s infinite;
-    z-index: -1;
-   
-}
-.title__aux3{
-    position: absolute;
-    font-size: clamp(2rem, 3vw, 200px);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    animation: titleAnimation3 ease-in-out 15s infinite;
-   
-    z-index: -2;
-}
 
 .welcome{
     font-size: clamp(1rem, 2rem, 200px);
@@ -88,6 +36,7 @@
     backdrop-filter: blur(10px);
     transition: all ease-in-out .2s;
     cursor: pointer;
+    width: 70%;
 }
 .button:hover{
 
@@ -98,6 +47,9 @@
 .button__link{
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes titleAnimation{
