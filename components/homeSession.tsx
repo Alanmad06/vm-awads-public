@@ -18,7 +18,7 @@ export default async function HomeSession(){
         </div>
        
         {(authSession) ?
-       <Link className={styles.button__link}  href='/memes'> <button >
+       <Link className={styles.button__link}  href='/memes'> <button className={styles.button} >
             Comienza a votar ahora
                   !</button> </Link>:
          <Link href='/login' className={styles.button__link}> <button className={styles.button}>
