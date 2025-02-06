@@ -11,7 +11,13 @@ export async function POST(request: Request) {
       redirect:false
     });
 
-   
+    return new Response(
+      JSON.stringify({ message: "Credenciales validas" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    )
   } catch (error) {
     
     if (error instanceof AuthError) {
