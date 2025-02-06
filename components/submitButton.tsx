@@ -31,7 +31,7 @@ export default function submitButton({ selectedCandidates, index }: { selectedCa
                 body: JSON.stringify(selectedCandidates)
             })
             const data = await response.json();
-            console.log(data);
+            
         } catch (e) {
             console.error(e)
         }

@@ -34,8 +34,6 @@ export const CandidatesProvider = ({ children }: { children: ReactNode }) => {
                     ...data.result.votes[key]
                 }));
 
-                
-
                 dispatch({ type: 'SET_CANDIDATES', payload: votesArray });
 
                 setFadeOut(true); 
