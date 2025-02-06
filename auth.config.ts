@@ -3,8 +3,7 @@ import Google from "next-auth/providers/google";
 
 export const authConfig = {
     pages :{
-        signIn : '/login',
-        error : '/error'
+        signIn : '/login'
     },
     callbacks :{
     authorized({auth,request : {nextUrl}}){

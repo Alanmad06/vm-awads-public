@@ -11,7 +11,7 @@ export default function NavigationButton({forward}:{forward : boolean}) {
 
     const router = useRouter();
     const pathname = usePathname();
-    const node : Node | number = navigationList.find(pathname!);
+    const node = navigationList.find(pathname!) as unknown as Node;
     
     return (
 
