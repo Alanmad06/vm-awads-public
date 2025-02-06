@@ -43,9 +43,12 @@ export default function RegisterForm() {
         }),
       });
 
+      const res = response.json()
+      console.log(res)
+
       if (!response.ok) {
-        const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || "something happened while Register"}`);
+        
+        setMessage(`Error: Algo inesperado sucedio`);
         return;
       }
       
@@ -55,8 +58,9 @@ export default function RegisterForm() {
       
     
     } catch (error) {
+      console.error(error)
       if (error instanceof Error) {
-        setMessage(`Error: ${error.message}`);
+        setMessage(`Error: Credenciales invalidas`);
     } else {
         setMessage("An unknown error occurred.");
     }

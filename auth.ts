@@ -5,7 +5,6 @@ import { authConfig } from "./auth.config";
 import { getUser } from "./lib/db/getUser";
 import { loginSchema } from "./lib/schemas/authSchemas";
 import Google from "next-auth/providers/google";
-import { Pool } from "pg";
 import { createUser } from "./lib/db/createUser";
 
 
@@ -16,10 +15,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        console.log(credentials)
         const parsedCrendials = loginSchema.safeParse(credentials);
         if (!parsedCrendials.success) {
           return null;
         }
+        console.log(parsedCrendials)
 
         const { email, password } = parsedCrendials.data;
         try {

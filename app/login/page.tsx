@@ -32,8 +32,9 @@ export default function LoginForm() {
         }),
       });
 
-      const res = await response.json();
-      console.log(res)
+
+      
+     
       if (!response.ok) {
         const res = await response.json();
         console.log(res);
@@ -50,8 +51,9 @@ export default function LoginForm() {
 
     } catch (error) {
 
+      console.error(error)
       if (error instanceof Error) {
-        setMessage(`Error: ${error.message}`);
+        setMessage(`Error: Credenciales invalidas`);
       } else {
         setMessage("Error desconocido");
       }

@@ -1,13 +1,7 @@
 import { z } from "zod";
 
 export const registerSchema = z.object({
-  name: z
-    .string({
-      message: " Favor de Ingresar un nombre valido",
-    })
-    .min(2, {
-      message: " Favor de ingresar un nombre con mas de 2 caracteres",
-    }),
+
   email: z
     .string({
       message: "Favor de Ingresar un nombre valido",
@@ -21,4 +15,4 @@ export const registerSchema = z.object({
 
 });
 
-export const loginSchema = registerSchema.omit({name : true })
+export const loginSchema = registerSchema
