@@ -15,9 +15,13 @@ export async function POST(request: Request) {
   try {
     const user = await auth()
     
-    if(user) {
-      id = user?.user!.id
-      email = user?.user?.email!
+    if(user && user?.user?.id && user?.user?.email!) {
+      id = user!.user!.id
+      email = user!.user!.email!
+    }else{
+      return NextResponse.json({
+        error: "Usuario no encontrado o sin email",
+      });
     }
   
    
