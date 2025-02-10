@@ -2,13 +2,15 @@ import { auth } from "@/auth"
 import styles from "./styles/homeSession.module.css"
 import Link from "next/link"
 import SignOutButton from "./signOutButton"
+import ResultsButton from "./resultsButton"
 
 export default async function HomeSession(){
     const authSession = await auth()
     
     return(
         <>
-        {(authSession)?<SignOutButton/>:''} 
+        {(authSession)?<><SignOutButton/> <ResultsButton/></>
+        :''} 
         <div className={styles.container}>
 
         <p className={styles.welcome}>Bienvenido a los</p>
