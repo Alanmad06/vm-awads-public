@@ -6,7 +6,7 @@ type Votes = {
 
 
 export function transformVotes(votes: Votes): votos[] {
-  return Object.entries(votes).map(([key, value]) => ({
+  return Object.entries(votes).map(([, value]) => ({
     category: value.category,
     names: value.candidate.name, 
   }));
