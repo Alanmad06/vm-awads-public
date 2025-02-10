@@ -3,7 +3,9 @@ import { selectedCandidate, votos } from "@/interfaces/candidates";
 type Votes = {
   [key: number]: selectedCandidate;
 };
-
+type ResultItem= {
+  votes: Votes;
+}
 
 export function transformVotes(votes: Votes): votos[] {
   return Object.entries(votes).map(([, value]) => ({
@@ -12,11 +14,13 @@ export function transformVotes(votes: Votes): votos[] {
   }));
 }
 
-export function transformAllVotes(result: any[]): votos[][] {
+
+
+export function transformAllVotes(result: ResultItem[]): votos[][] {
   return result.map((item) => transformVotes(item.votes));
 }
 
-export default function processVotes(result: any[]): votos[] {
+export default function processVotes(result: ResultItem[]): votos[] {
   const res: votos[][] = transformAllVotes(result);
   const newArray: votos[] = [];
 
