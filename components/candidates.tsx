@@ -67,7 +67,7 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
 
         
         if (isChecked) {
-          selectedCandidate.current = candidate.id;
+          selectedCandidate.current = candidate.id!;
           if (selectedCandidate.current === candidate.id) {
             estilo = 'selected';
           }
@@ -78,16 +78,16 @@ export default function Candidates({ candidates, category, styles }: CandidatesP
         return (
           <div
             key={candidate.id}
-            className={`container__candidatos ${styles[candidate.id]} ${estilo}`}>
+            className={`container__candidatos ${styles[candidate.id!]} ${estilo}`}>
             <input
               type="radio"
               id={candidate.id}
               className={'container__candidatos__input'}
               name="candidatos"
               checked={isChecked}
-              onChange={() => handleSelect(candidate.id)}
+              onChange={() => handleSelect(candidate.id!)}
             />
-            <label htmlFor={candidate.id} onClick={() => handleSelect(candidate.id)}>
+            <label htmlFor={candidate.id} onClick={() => handleSelect(candidate.id!)}>
               <Image
                 className={'container__candidatos__img'}
                 src={candidate.src!}

@@ -1,5 +1,5 @@
 export interface Candidate {
-    id: string;
+    id?: string;
     src?: string;
     alt?: string;
     name : string;
@@ -35,3 +35,9 @@ export interface verificationCode{
     expires_at ?: Date,
     created_at ?: Date
 }
+
+
+export interface votos {
+    category: string;
+    names: string | string[];
+  };
