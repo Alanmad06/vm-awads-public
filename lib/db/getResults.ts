@@ -1,6 +1,6 @@
 "use server"
 import { votos } from "@/interfaces/candidates";
-import processVotes, { processChartData } from "../schemas/processVotes";
+import processVotes, { processChartData } from "../processVotes";
 
 export default async function getResults() {
     try{

@@ -4,20 +4,18 @@ type Votes = {
   [key: number]: selectedCandidate;
 };
 
-// Transforma los votos en objetos con { category, names }
+
 export function transformVotes(votes: Votes): votos[] {
-  return Object.entries(votes).map(([_, value]) => ({
+  return Object.entries(votes).map(([key, value]) => ({
     category: value.category,
-    names: value.candidate.name, // Suponiendo que candidate.name es un string
+    names: value.candidate.name, 
   }));
 }
 
-// Transforma la estructura completa de votos
 export function transformAllVotes(result: any[]): votos[][] {
   return result.map((item) => transformVotes(item.votes));
 }
 
-// Procesa los votos y estructura la información
 export default function processVotes(result: any[]): votos[] {
   const res: votos[][] = transformAllVotes(result);
   const newArray: votos[] = [];
@@ -40,10 +38,10 @@ export default function processVotes(result: any[]): votos[] {
   }
 }
 
-// Prepara los datos para `Recharts`
+
 export function processChartData(votes: votos[]) {
   return votes.map(({ category, names }) => {
-    // Contar cuántas veces se repite cada nombre en `names`
+  
     const nameCounts = (Array.isArray(names) ? names : [names]).reduce<Record<string, number>>((acc, name) => {
       acc[name] = (acc[name] || 0) + 1;
       return acc;
