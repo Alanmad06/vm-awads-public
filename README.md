@@ -18,6 +18,8 @@ Styling: CSS
 
 Authentication: NextAuth.js
 
+DB : Neon Serverless Postgres
+
 Deployment: Vercel |
 
 ![image](https://github.com/user-attachments/assets/d16c7b69-5911-496b-a3ff-833725dac68c)
