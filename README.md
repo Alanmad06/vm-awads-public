@@ -1,10 +1,24 @@
-PC for better experience
+| A customizable and responsive voting platform designed for award events, built with Next.js 15, TypeScript, and  CSS. This application allows users to vote across various categories, each featuring a different number of candidates, with dynamic layouts tailored to enhance user experience.​
 
-Voting Platform with a personalize design 
+🏆 Features
+Dynamic Category Layouts: Each award category supports between 3 to 17 candidates, with layouts adapting to the number of nominees to ensure optimal presentation.
 
-Right now only has a one candidate y some categories to fill out
-From 3 candidates up to 17 candidates in differetns categories ,
-Each category has a different design depending on candidates number
+Responsive Design: Optimized for desktop viewing, providing a seamless experience across different screen sizes.
+
+Personalized Styling: Customizable themes and designs to match the branding of different award events.
+
+Secure Voting Mechanism: Ensures one vote per user per category, maintaining the integrity of the voting process.​
+
+🛠 Technologies Used
+Framework: Next.js 15
+
+Language: TypeScript
+
+Styling: CSS
+
+Authentication: NextAuth.js
+
+Deployment: Vercel |
 
 ![image](https://github.com/user-attachments/assets/d16c7b69-5911-496b-a3ff-833725dac68c)
 ![image](https://github.com/user-attachments/assets/430c9ec1-9d43-4f3e-ad16-5532b3ad8172)
